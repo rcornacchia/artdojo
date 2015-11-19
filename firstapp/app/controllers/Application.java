@@ -16,7 +16,11 @@ public class Application extends Controller {
 
      public Result index() {
         List<Artworks> arts = Artworks.find.where().orderBy("votes desc").setMaxRows(9).findList();
-        return ok(index.render(arts.get(0),arts.get(1),arts.get(2),arts.get(3),arts.get(4),arts.get(5),arts.get(6),arts.get(7),arts.get(8), Form.form(Index.class)));
+        for (Artworks art : arts){
+            System.out.println(art.title);
+            System.out.println(art.votes);
+        }
+        return ok(index.render(arts.get(0),arts.get(1),arts.get(2),arts.get(3),arts.get(4),arts.get(5),arts.get(6),arts.get(7),arts.get(8),Form.form(Index.class)));
     }
 
     public Result secureIndex(String email) {
@@ -99,11 +103,8 @@ public class Application extends Controller {
         String email = session("email");
         if (!art.users.contains(user)){
             art.votes++;
+            System.out.println(art.votes);
             art.users.add(user);
-            art.save();
-        } else {
-            art.votes--;
-            art.users.remove(user);
             art.save();
         }
         return redirect(
@@ -119,6 +120,7 @@ public class Application extends Controller {
             art.auction.bidCount++;
             art.auction.save();
         }
+        System.out.println("bid");
         return redirect(
                 routes.Application.secureIndex(user.email)
         );
@@ -145,7 +147,6 @@ public class Application extends Controller {
         }
 
     }
-    
 
     public Result authenticate() {
         Form<Login> loginForm = Form.form(Login.class).bindFromRequest();

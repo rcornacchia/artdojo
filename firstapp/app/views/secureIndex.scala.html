@@ -53,7 +53,7 @@
                         <div class="col-lg-4 col-sm-6 col-xs-12">
                             <!-- image trigger modal -->
                             <a data-toggle="modal" data-target="#myModal1">
-                                <img src=@one.filePath class="gridImage" onclick="endAuction(@one.auction.ended, 'bid1', 'submit1','modalFooter1');">
+                                <img src=@one.filePath class="gridImage" onclick="endAuction(@one.auction.ended, 'bid', 'submit','modalFooter');">
                             </a>
                             <style type="text/css"></style>
                             <!-- Modal -->
@@ -71,6 +71,7 @@
                                                 </div>
                                                 <div class="col-lg-6 col-sm-6 col-xs-6">
                                                     User: @one.user.username
+                                                    Me: @user.username
                                                     <br>
                                                     Votes: <p id="numVotes">@one.votes</p>
                                                     <br>
@@ -84,13 +85,13 @@
                                                     </p>
                                                     } else {
                                                     <p>
-                                                        <input type="image" src="http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons/glossy-black-icons-arrows/007980-glossy-black-icon-arrows-arrow-thick-up.png" height="42" width="42" alt="Submit" />
+                                                        <img src="http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons/glossy-black-icons-arrows/007980-glossy-black-icon-arrows-arrow-thick-up.png" height="42" width="42" />
                                                     </p>
                                                     }}
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="modal-footer" id="modalFooter1">
+                                        <div class="modal-footer" id="modalFooter">
                                             <div class="container-fluid">
                                                 <div class="row">
                                                     <div class="col-lg-2 col-sm-2 col-xs-2">
@@ -113,13 +114,13 @@
                                                         @helper.form(routes.Application.click("bid")) {
                                                         Submit Bid
                                                         <p>
-                                                            <input type=number name="bid" id="bid1" placeholder="Bid">
+                                                            <input type=number name="bid" placeholder="Bid">
                                                         </p>
                                                         <p>
                                                             <input type=number name="artId" placeholder="Bid" value=@one.artid hidden>
                                                         </p>
                                                         <p>
-                                                            <button type="submit" class="btn btn-default" id="submit1">Submit</button>
+                                                            <button type="submit" class="btn btn-default">Submit</button>
                                                         </p>
                                                         }
                                                     </div>
@@ -133,7 +134,7 @@
                         <div class="col-lg-4 col-sm-6 col-xs-12">
                             <!-- image trigger modal -->
                             <a data-toggle="modal" data-target="#myModal2">
-                                <img src=@two.filePath class="gridImage" onclick="endAuction(@two.auction.ended, 'bid2', 'submit2','modalFooter2');">
+                                <img src=@two.filePath class="gridImage" onclick="endAuction(@two.auction.ended, 'bid', 'submit','modalFooter');">
                             </a>
                             <style type="text/css"></style>
                             <!-- Modal -->
@@ -151,6 +152,7 @@
                                                 </div>
                                                 <div class="col-lg-6 col-sm-6 col-xs-6">
                                                     User: @two.user.username
+                                                    Me: @user.username
                                                     <br>
                                                     Votes: <p id="numVotes">@two.votes</p>
                                                     <br>
@@ -164,13 +166,13 @@
                                                     </p>
                                                     } else {
                                                     <p>
-                                                        <input type="image" src="http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons/glossy-black-icons-arrows/007980-glossy-black-icon-arrows-arrow-thick-up.png" height="42" width="42" alt="Submit" />
+                                                        <img src="http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons/glossy-black-icons-arrows/007980-glossy-black-icon-arrows-arrow-thick-up.png" height="42" width="42" />
                                                     </p>
                                                     }}
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="modal-footer" id="modalFooter2">
+                                        <div class="modal-footer" id="modalFooter">
                                             <div class="container-fluid">
                                                 <div class="row">
                                                     <div class="col-lg-2 col-sm-2 col-xs-2">
@@ -193,13 +195,13 @@
                                                         @helper.form(routes.Application.click("bid")) {
                                                         Submit Bid
                                                         <p>
-                                                            <input type=number name="bid" id="bid2" placeholder="Bid">
+                                                            <input type=number name="bid" placeholder="Bid">
                                                         </p>
                                                         <p>
                                                             <input type=number name="artId" placeholder="Bid" value=@two.artid hidden>
                                                         </p>
                                                         <p>
-                                                            <button type="submit" class="btn btn-default" id="submit2">Submit</button>
+                                                            <button type="submit" class="btn btn-default">Submit</button>
                                                         </p>
                                                         }
                                                     </div>
@@ -213,7 +215,7 @@
                         <div class="col-lg-4 col-sm-6 col-xs-12">
                             <!-- image trigger modal -->
                             <a data-toggle="modal" data-target="#myModal3">
-                                <img src=@three.filePath class="gridImage" onclick="endAuction(@three.auction.ended, 'bid3', 'submit3','modalFooter3');">
+                                <img src=@three.filePath class="gridImage" onclick="endAuction(@three.auction.ended, 'bid', 'submit','modalFooter');">
                             </a>
                             <style type="text/css"></style>
                             <!-- Modal -->
@@ -231,6 +233,7 @@
                                                 </div>
                                                 <div class="col-lg-6 col-sm-6 col-xs-6">
                                                     User: @three.user.username
+                                                    Me: @user.username
                                                     <br>
                                                     Votes: <p id="numVotes">@three.votes</p>
                                                     <br>
@@ -244,13 +247,13 @@
                                                     </p>
                                                     } else {
                                                     <p>
-                                                        <input type="image" src="http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons/glossy-black-icons-arrows/007980-glossy-black-icon-arrows-arrow-thick-up.png" height="42" width="42" alt="Submit" />
+                                                        <img src="http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons/glossy-black-icons-arrows/007980-glossy-black-icon-arrows-arrow-thick-up.png" height="42" width="42" />
                                                     </p>
                                                     }}
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="modal-footer" id="modalFooter3">
+                                        <div class="modal-footer" id="modalFooter">
                                             <div class="container-fluid">
                                                 <div class="row">
                                                     <div class="col-lg-2 col-sm-2 col-xs-2">
@@ -273,13 +276,13 @@
                                                         @helper.form(routes.Application.click("bid")) {
                                                         Submit Bid
                                                         <p>
-                                                            <input type=number name="bid" id="bid3" placeholder="Bid">
+                                                            <input type=number name="bid" placeholder="Bid">
                                                         </p>
                                                         <p>
                                                             <input type=number name="artId" placeholder="Bid" value=@three.artid hidden>
                                                         </p>
                                                         <p>
-                                                            <button type="submit" class="btn btn-default" id="submit3">Submit</button>
+                                                            <button type="submit" class="btn btn-default">Submit</button>
                                                         </p>
                                                         }
                                                     </div>
@@ -295,7 +298,7 @@
                         <div class="col-lg-4 col-sm-6 col-xs-12">
                             <!-- image trigger modal -->
                             <a data-toggle="modal" data-target="#myModal4">
-                                <img src=@four.filePath class="gridImage" onclick="endAuction(@four.auction.ended, 'bid4', 'submit4','modalFooter4');">
+                                <img src=@four.filePath class="gridImage" onclick="endAuction(@four.auction.ended, 'bid', 'submit','modalFooter');">
                             </a>
                             <style type="text/css"></style>
                             <!-- Modal -->
@@ -313,6 +316,7 @@
                                                 </div>
                                                 <div class="col-lg-6 col-sm-6 col-xs-6">
                                                     User: @four.user.username
+                                                    Me: @user.username
                                                     <br>
                                                     Votes: <p id="numVotes">@four.votes</p>
                                                     <br>
@@ -326,13 +330,13 @@
                                                     </p>
                                                     } else {
                                                     <p>
-                                                        <input type="image" src="http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons/glossy-black-icons-arrows/007980-glossy-black-icon-arrows-arrow-thick-up.png" height="42" width="42" alt="Submit" />
+                                                        <img src="http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons/glossy-black-icons-arrows/007980-glossy-black-icon-arrows-arrow-thick-up.png" height="42" width="42" />
                                                     </p>
                                                     }}
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="modal-footer" id="modalFooter4">
+                                        <div class="modal-footer" id="modalFooter">
                                             <div class="container-fluid">
                                                 <div class="row">
                                                     <div class="col-lg-2 col-sm-2 col-xs-2">
@@ -355,13 +359,13 @@
                                                         @helper.form(routes.Application.click("bid")) {
                                                         Submit Bid
                                                         <p>
-                                                            <input type=number name="bid" id="bid4" placeholder="Bid">
+                                                            <input type=number name="bid" placeholder="Bid">
                                                         </p>
                                                         <p>
                                                             <input type=number name="artId" placeholder="Bid" value=@four.artid hidden>
                                                         </p>
                                                         <p>
-                                                            <button type="submit" class="btn btn-default" id="submit4">Submit</button>
+                                                            <button type="submit" class="btn btn-default">Submit</button>
                                                         </p>
                                                         }
                                                     </div>
@@ -375,7 +379,7 @@
                         <div class="col-lg-4 col-sm-6 col-xs-12">
                             <!-- image trigger modal -->
                             <a data-toggle="modal" data-target="#myModal5">
-                                <img src=@five.filePath class="gridImage" onclick="endAuction(@five.auction.ended, 'bid5', 'submit5','modalFooter5');">
+                                <img src=@five.filePath class="gridImage" onclick="endAuction(@five.auction.ended, 'bid', 'submit','modalFooter');">
                             </a>
                             <style type="text/css"></style>
                             <!-- Modal -->
@@ -393,6 +397,7 @@
                                                 </div>
                                                 <div class="col-lg-6 col-sm-6 col-xs-6">
                                                     User: @five.user.username
+                                                    Me: @user.username
                                                     <br>
                                                     Votes: <p id="numVotes">@five.votes</p>
                                                     <br>
@@ -406,13 +411,13 @@
                                                     </p>
                                                     } else {
                                                     <p>
-                                                        <input type="image" src="http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons/glossy-black-icons-arrows/007980-glossy-black-icon-arrows-arrow-thick-up.png" height="42" width="42" alt="Submit" />
+                                                        <img src="http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons/glossy-black-icons-arrows/007980-glossy-black-icon-arrows-arrow-thick-up.png" height="42" width="42" />
                                                     </p>
                                                     }}
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="modal-footer" id="modalFooter5">
+                                        <div class="modal-footer" id="modalFooter">
                                             <div class="container-fluid">
                                                 <div class="row">
                                                     <div class="col-lg-2 col-sm-2 col-xs-2">
@@ -435,13 +440,13 @@
                                                         @helper.form(routes.Application.click("bid")) {
                                                         Submit Bid
                                                         <p>
-                                                            <input type=number name="bid" id="bid5" placeholder="Bid">
+                                                            <input type=number name="bid" placeholder="Bid">
                                                         </p>
                                                         <p>
                                                             <input type=number name="artId" placeholder="Bid" value=@five.artid hidden>
                                                         </p>
                                                         <p>
-                                                            <button type="submit" class="btn btn-default" id="submit5">Submit</button>
+                                                            <button type="submit" class="btn btn-default">Submit</button>
                                                         </p>
                                                         }
                                                     </div>
@@ -455,7 +460,7 @@
                         <div class="col-lg-4 col-sm-6 col-xs-12">
                             <!-- image trigger modal -->
                             <a data-toggle="modal" data-target="#myModal6">
-                                <img src=@six.filePath class="gridImage" onclick="endAuction(@six.auction.ended, 'bid6', 'submit6','modalFooter6');">
+                                <img src=@six.filePath class="gridImage" onclick="endAuction(@six.auction.ended, 'bid', 'submit','modalFooter');">
                             </a>
                             <style type="text/css"></style>
                             <!-- Modal -->
@@ -473,6 +478,7 @@
                                                 </div>
                                                 <div class="col-lg-6 col-sm-6 col-xs-6">
                                                     User: @six.user.username
+                                                    Me: @user.username
                                                     <br>
                                                     Votes: <p id="numVotes">@six.votes</p>
                                                     <br>
@@ -486,13 +492,13 @@
                                                     </p>
                                                     } else {
                                                     <p>
-                                                        <input type="image" src="http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons/glossy-black-icons-arrows/007980-glossy-black-icon-arrows-arrow-thick-up.png" height="42" width="42" alt="Submit" />
+                                                        <img src="http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons/glossy-black-icons-arrows/007980-glossy-black-icon-arrows-arrow-thick-up.png" height="42" width="42" />
                                                     </p>
                                                     }}
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="modal-footer" id="modalFooter6">
+                                        <div class="modal-footer" id="modalFooter">
                                             <div class="container-fluid">
                                                 <div class="row">
                                                     <div class="col-lg-2 col-sm-2 col-xs-2">
@@ -515,13 +521,13 @@
                                                         @helper.form(routes.Application.click("bid")) {
                                                         Submit Bid
                                                         <p>
-                                                            <input type=number name="bid" id="bid6" placeholder="Bid">
+                                                            <input type=number name="bid" placeholder="Bid">
                                                         </p>
                                                         <p>
                                                             <input type=number name="artId" placeholder="Bid" value=@six.artid hidden>
                                                         </p>
                                                         <p>
-                                                            <button type="submit" class="btn btn-default" id="submit6">Submit</button>
+                                                            <button type="submit" class="btn btn-default">Submit</button>
                                                         </p>
                                                         }
                                                     </div>
@@ -537,7 +543,7 @@
                         <div class="col-lg-4 col-sm-6 col-xs-12">
                             <!-- image trigger modal -->
                             <a data-toggle="modal" data-target="#myModal7">
-                                <img src=@seven.filePath class="gridImage" onclick="endAuction(@seven.auction.ended, 'bid7', 'submit7','modalFooter7');">
+                                <img src=@seven.filePath class="gridImage" onclick="endAuction(@seven.auction.ended, 'bid', 'submit','modalFooter');">
                             </a>
                             <style type="text/css"></style>
                             <!-- Modal -->
@@ -555,6 +561,7 @@
                                                 </div>
                                                 <div class="col-lg-6 col-sm-6 col-xs-6">
                                                     User: @seven.user.username
+                                                    Me: @user.username
                                                     <br>
                                                     Votes: <p id="numVotes">@seven.votes</p>
                                                     <br>
@@ -568,13 +575,13 @@
                                                     </p>
                                                     } else {
                                                     <p>
-                                                        <input type="image" src="http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons/glossy-black-icons-arrows/007980-glossy-black-icon-arrows-arrow-thick-up.png" height="42" width="42" alt="Submit" />
+                                                        <img src="http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons/glossy-black-icons-arrows/007980-glossy-black-icon-arrows-arrow-thick-up.png" height="42" width="42" />
                                                     </p>
                                                     }}
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="modal-footer" id="modalFooter7">
+                                        <div class="modal-footer" id="modalFooter">
                                             <div class="container-fluid">
                                                 <div class="row">
                                                     <div class="col-lg-2 col-sm-2 col-xs-2">
@@ -597,13 +604,13 @@
                                                         @helper.form(routes.Application.click("bid")) {
                                                         Submit Bid
                                                         <p>
-                                                            <input type=number name="bid" id="bid7" placeholder="Bid">
+                                                            <input type=number name="bid" placeholder="Bid">
                                                         </p>
                                                         <p>
                                                             <input type=number name="artId" placeholder="Bid" value=@seven.artid hidden>
                                                         </p>
                                                         <p>
-                                                            <button type="submit" class="btn btn-default" id="submit7">Submit</button>
+                                                            <button type="submit" class="btn btn-default">Submit</button>
                                                         </p>
                                                         }
                                                     </div>
@@ -617,7 +624,7 @@
                         <div class="col-lg-4 col-sm-6 col-xs-12">
                             <!-- image trigger modal -->
                             <a data-toggle="modal" data-target="#myModal8">
-                                <img src=@eight.filePath class="gridImage" onclick="endAuction(@eight.auction.ended, 'bid8', 'submit8','modalFooter8');">
+                                <img src=@eight.filePath class="gridImage" onclick="endAuction(@eight.auction.ended, 'bid', 'submit','modalFooter');">
                             </a>
                             <style type="text/css"></style>
                             <!-- Modal -->
@@ -635,6 +642,7 @@
                                                 </div>
                                                 <div class="col-lg-6 col-sm-6 col-xs-6">
                                                     User: @eight.user.username
+                                                    Me: @user.username
                                                     <br>
                                                     Votes: <p id="numVotes">@eight.votes</p>
                                                     <br>
@@ -648,13 +656,13 @@
                                                     </p>
                                                     } else {
                                                     <p>
-                                                        <input type="image" src="http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons/glossy-black-icons-arrows/007980-glossy-black-icon-arrows-arrow-thick-up.png" height="42" width="42" alt="Submit" />
+                                                        <img src="http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons/glossy-black-icons-arrows/007980-glossy-black-icon-arrows-arrow-thick-up.png" height="42" width="42" />
                                                     </p>
                                                     }}
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="modal-footer" id="modalFooter8">
+                                        <div class="modal-footer" id="modalFooter">
                                             <div class="container-fluid">
                                                 <div class="row">
                                                     <div class="col-lg-2 col-sm-2 col-xs-2">
@@ -677,13 +685,13 @@
                                                         @helper.form(routes.Application.click("bid")) {
                                                         Submit Bid
                                                         <p>
-                                                            <input type=number name="bid" id="bid8" placeholder="Bid">
+                                                            <input type=number name="bid" placeholder="Bid">
                                                         </p>
                                                         <p>
                                                             <input type=number name="artId" placeholder="Bid" value=@eight.artid hidden>
                                                         </p>
                                                         <p>
-                                                            <button type="submit" class="btn btn-default" id="submit8">Submit</button>
+                                                            <button type="submit" class="btn btn-default">Submit</button>
                                                         </p>
                                                         }
                                                     </div>
@@ -697,7 +705,7 @@
                         <div class="col-lg-4 col-sm-6 col-xs-12">
                             <!-- image trigger modal -->
                             <a data-toggle="modal" data-target="#myModal9">
-                                <img src=@nine.filePath class="gridImage" onclick="endAuction(@nine.auction.ended, 'bid9', 'submit9','modalFooter9');">
+                                <img src=@nine.filePath class="gridImage" onclick="endAuction(@one.auction.ended, 'bid', 'submit','modalFooter');">
                             </a>
                             <style type="text/css"></style>
                             <!-- Modal -->
@@ -715,6 +723,7 @@
                                                 </div>
                                                 <div class="col-lg-6 col-sm-6 col-xs-6">
                                                     User: @nine.user.username
+                                                    Me: @user.username
                                                     <br>
                                                     Votes: <p id="numVotes">@nine.votes</p>
                                                     <br>
@@ -728,13 +737,13 @@
                                                     </p>
                                                     } else {
                                                     <p>
-                                                        <input type="image" src="http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons/glossy-black-icons-arrows/007980-glossy-black-icon-arrows-arrow-thick-up.png" height="42" width="42" alt="Submit" />
+                                                        <img src="http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons/glossy-black-icons-arrows/007980-glossy-black-icon-arrows-arrow-thick-up.png" height="42" width="42" />
                                                     </p>
                                                     }}
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="modal-footer" id="modalFooter9">
+                                        <div class="modal-footer" id="modalFooter">
                                             <div class="container-fluid">
                                                 <div class="row">
                                                     <div class="col-lg-2 col-sm-2 col-xs-2">
@@ -757,13 +766,13 @@
                                                         @helper.form(routes.Application.click("bid")) {
                                                         Submit Bid
                                                         <p>
-                                                            <input type=number name="bid" id="bid9" placeholder="Bid">
+                                                            <input type=number name="bid" placeholder="Bid">
                                                         </p>
                                                         <p>
                                                             <input type=number name="artId" placeholder="Bid" value=@nine.artid hidden>
                                                         </p>
                                                         <p>
-                                                            <button type="submit" class="btn btn-default" id="submit9">Submit</button>
+                                                            <button type="submit" class="btn btn-default">Submit</button>
                                                         </p>
                                                         }
                                                     </div>
