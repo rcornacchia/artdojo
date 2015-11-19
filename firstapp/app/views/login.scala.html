@@ -3,23 +3,24 @@
 
 <html>
     <head>
-        <h1>Dojo</h1>
-
+        <h1><a href="@routes.Application.index" id="logo">Dojo</a></h1>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
         integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ=="
         crossorigin="anonymous">
-
-        <!-- Custom styles for this template -->
-    <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/signin.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/signin.css")">
 
     </head>
 
 
     <body>
+<<<<<<< HEAD
+
+=======
         <header>
             <a href="@routes.Application.index" id="logo">Dojo</a>
             <a href="@routes.Application.register">Register</a>
         </header>
+>>>>>>> e370a834bc0a103f8fc2a4fc9643031997e99826
 
         <div style="margin:0 auto; width: 300px;">
             @helper.form(routes.Application.authenticate) {
