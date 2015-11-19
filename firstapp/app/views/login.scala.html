@@ -1,0 +1,46 @@
+@(form: Form[Application.Login])
+
+
+<html>
+    <head>
+        <h1>Dojo</h1>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
+        integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ=="
+        crossorigin="anonymous">
+
+        <!-- Custom styles for this template -->
+    <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/signin.css")">
+
+    </head>
+
+
+    <body>
+        <header>
+            <a href="@routes.Application.index" id="logo">Dojo</a>
+        </header>
+
+        <div style="margin:0 auto; width: 300px;">
+            @helper.form(routes.Application.authenticate) {
+               <h1>Sign in</h1>
+
+               @if(form.hasGlobalErrors) {
+                    <p class="error">
+                        @form.globalError.message
+                    </p>
+                }
+
+                <input type="email" name="email" style="width: 300px;" class="form-control input-lg" placeholder="Email" value="@form("email").value">
+                <input type="password" name="password" style="width: 300px;" class="form-control input-lg" placeholder="Password">
+                <button class="btn btn-lg btn-primary btn-block" style="width: 300px;" type="submit">Sign In</button>
+
+            }
+        </div>
+
+
+
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
