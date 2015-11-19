@@ -15,10 +15,12 @@ public class Artworks extends Model {
     public String filePath;
     public String title;
     public int votes;
-    public int votedOn;
     
-    //@OneToMany(cascade = CascadeType.ALL)
-    //public List<Users> users;
+    
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "upvotes")
+    public List<Users> users;
+    
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "uid")
     public Users user;
@@ -27,8 +29,6 @@ public class Artworks extends Model {
     @JoinColumn(name = "aucId")
     public Auctions auction;
     
-     public static Finder<Long,Artworks> find = new Finder<Long,Artworks>(
-    Long.class, Artworks.class
-  ); 
+    public static Finder<Long,Artworks> find = new Finder<Long,Artworks>(Long.class, Artworks.class); 
     
 }

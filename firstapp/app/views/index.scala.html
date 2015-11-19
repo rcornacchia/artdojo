@@ -99,7 +99,7 @@
                                                     End: @one.auction.closeDate
                                                 </div>
                                                 <div class="col-lg-3 col-sm-3 col-xs-3">
-                                                    Have High Bid: @one.auction.haveHighBid
+                                                    Highest Bidder: @one.auction.userWithHighBid.username
                                                 </div>
                                                 <div class="col-lg-4 col-sm-4 col-xs-4">
                                                 <!--<form class="form-inline" role="form">
@@ -176,7 +176,7 @@
                                                     End: @two.auction.closeDate
                                                 </div>
                                                 <div class="col-lg-3 col-sm-3 col-xs-3">
-                                                    Have High Bid: @two.auction.haveHighBid
+                                                    Highest Bidder: @two.auction.userWithHighBid.username
                                                 </div>
                                                 <div class="col-lg-4 col-sm-4 col-xs-4">
                                                     @helper.form(routes.Application.login()) {
@@ -185,7 +185,7 @@
                                                         <input type=number name="bid" placeholder="Bid">
                                                     </p>
                                                     <p>
-                                                        <input type=number name="artId" placeholder="Bid" value=@one.artid hidden>
+                                                        <input type=number name="artId" placeholder="Bid" value=@two.artid hidden>
                                                     </p>
                                                     <p>
                                                         <button type="submit" class="btn btn-default">Submit</button>
@@ -247,7 +247,7 @@
                                                     End: @three.auction.closeDate
                                                 </div>
                                                 <div class="col-lg-3 col-sm-3 col-xs-3">
-                                                    Have High Bid: @three.auction.haveHighBid
+                                                    Highest Bidder: @three.auction.userWithHighBid.username
                                                 </div>
                                                 <div class="col-lg-4 col-sm-4 col-xs-4">
                                                     <!--<form class="form-inline" role="form">
@@ -263,7 +263,7 @@
                                                         <input type=number name="bid" placeholder="Bid">
                                                     </p>
                                                     <p>
-                                                        <input type=number name="artId" placeholder="Bid" value=@one.artid hidden>
+                                                        <input type=number name="artId" placeholder="Bid" value=@three.artid hidden>
                                                     </p>
                                                     <p>
                                                         <button type="submit" class="btn btn-default">Submit</button>
@@ -327,7 +327,7 @@
                                                     End: @four.auction.closeDate
                                                 </div>
                                                 <div class="col-lg-3 col-sm-3 col-xs-3">
-                                                    Have High Bid: @four.auction.haveHighBid
+                                                    Highest Bidder: @four.auction.userWithHighBid.username
                                                 </div>
                                                 <div class="col-lg-4 col-sm-4 col-xs-4">
                                                 <!--<form class="form-inline" role="form">
@@ -343,7 +343,7 @@
                                                         <input type=number name="bid" placeholder="Bid">
                                                     </p>
                                                     <p>
-                                                        <input type=number name="artId" placeholder="Bid" value=@one.artid hidden>
+                                                        <input type=number name="artId" placeholder="Bid" value=@four.artid hidden>
                                                     </p>
                                                     <p>
                                                         <button type="submit" class="btn btn-default">Submit</button>
@@ -408,7 +408,7 @@
                                                     End: @five.auction.closeDate
                                                 </div>
                                                 <div class="col-lg-3 col-sm-3 col-xs-3">
-                                                    Have High Bid: @five.auction.haveHighBid
+                                                    Highest Bidder: @five.auction.userWithHighBid.username
                                                 </div>
                                                 <div class="col-lg-4 col-sm-4 col-xs-4">
                                                 <!--<form class="form-inline" role="form">
@@ -490,7 +490,7 @@
                                                     End: @six.auction.closeDate
                                                 </div>
                                                 <div class="col-lg-3 col-sm-3 col-xs-3">
-                                                    Have High Bid: @six.auction.haveHighBid
+                                                    Highest Bidder: @six.auction.userWithHighBid.username
                                                 </div>
                                                 <div class="col-lg-4 col-sm-4 col-xs-4">
                                                 <!-- <form class="form-inline" role="form">
@@ -506,7 +506,7 @@
                                                         <input type=number name="bid" placeholder="Bid">
                                                     </p>
                                                     <p>
-                                                        <input type=number name="artId" placeholder="Bid" value=@one.artid hidden>
+                                                        <input type=number name="artId" placeholder="Bid" value=@six.artid hidden>
                                                     </p>
                                                     <p>
                                                         <button type="submit" class="btn btn-default">Submit</button>
@@ -573,7 +573,7 @@
                                                     End: @seven.auction.closeDate
                                                 </div>
                                                 <div class="col-lg-3 col-sm-3 col-xs-3">
-                                                    Have High Bid: @seven.auction.haveHighBid
+                                                    Highest Bidder: @seven.auction.userWithHighBid.username
                                                 </div>
                                                 <div class="col-lg-4 col-sm-4 col-xs-4">
                                                 <!--<form class="form-inline" role="form">
@@ -589,7 +589,7 @@
                                                         <input type=number name="bid" placeholder="Bid">
                                                     </p>
                                                     <p>
-                                                        <input type=number name="artId" placeholder="Bid" value=@one.artid hidden>
+                                                        <input type=number name="artId" placeholder="Bid" value=@seven.artid hidden>
                                                     </p>
                                                     <p>
                                                         <button type="submit" class="btn btn-default">Submit</button>
@@ -654,7 +654,7 @@
                                                     End: @eight.auction.closeDate
                                                 </div>
                                                 <div class="col-lg-3 col-sm-3 col-xs-3">
-                                                    Have High Bid: @eight.auction.haveHighBid
+                                                    Highest Bidder: @eight.auction.userWithHighBid.username
                                                 </div>
                                                 <div class="col-lg-4 col-sm-4 col-xs-4">
                                                 <!--<form class="form-inline" role="form">
@@ -670,7 +670,7 @@
                                                         <input type=number name="bid" placeholder="Bid">
                                                     </p>
                                                     <p>
-                                                        <input type=number name="artId" placeholder="Bid" value=@one.artid hidden>
+                                                        <input type=number name="artId" placeholder="Bid" value=@eight.artid hidden>
                                                     </p>
                                                     <p>
                                                         <button type="submit" class="btn btn-default">Submit</button>
@@ -737,7 +737,7 @@
                                                     End: @nine.auction.closeDate
                                                 </div>
                                                 <div class="col-lg-3 col-sm-3 col-xs-3">
-                                                    Have High Bid: @nine.auction.haveHighBid
+                                                    Highest Bidder: @nine.auction.userWithHighBid.username
                                                 </div>
                                                 <div class="col-lg-4 col-sm-4 col-xs-4">
                                                 <!--<form class="form-inline" role="form">
@@ -753,7 +753,7 @@
                                                         <input type=number name="bid" placeholder="Bid">
                                                     </p>
                                                     <p>
-                                                        <input type=number name="artId" placeholder="Bid" value=@one.artid hidden>
+                                                        <input type=number name="artId" placeholder="Bid" value=@nine.artid hidden>
                                                     </p>
                                                     <p>
                                                         <button type="submit" class="btn btn-default">Submit</button>

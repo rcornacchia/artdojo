@@ -10,18 +10,18 @@ public class Auctions extends Model {
     @Id
     public Long aucId;
     
-    
-    public Long artid;
     public String openDate;
     public String closeDate;
     public Long bidCount;
     public Long currentBid;
-    public String haveHighBid;
+    public int ended;
     
     
     @OneToOne(cascade = CascadeType.ALL)
     public Artworks artwork;
     
-    
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "userWithHighBid")
+    public Users userWithHighBid;
     
 }

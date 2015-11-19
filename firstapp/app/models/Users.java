@@ -15,7 +15,6 @@ public class Users extends Model {
     public String username;
     public String password;
     public String email;
-    public int votes;
 
     //@ManyToMany
     //public List<Artworks> artworks;
@@ -24,12 +23,10 @@ public class Users extends Model {
     //@ManyToMany(mappedBy="users")
     //public List<Artworks> artworks;
 
-     @OneToMany(cascade = CascadeType.ALL)
-        public List<Artworks> artworks;
+    @OneToMany(cascade = CascadeType.ALL)
+    public List<Artworks> artworks;
 
-    public static Finder<Long,Users> find = new Finder<Long,Users>(
-        Long.class, Users.class
-    );
+    public static Finder<Long,Users> find = new Finder<Long,Users>(Long.class, Users.class);
 
     public static Users findByEmail(String email) {
         return find.where().eq("email", email).findUnique();

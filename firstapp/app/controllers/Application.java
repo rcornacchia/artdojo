@@ -6,46 +6,42 @@ import models.*;
 import play.data.*;
 import java.util.*;
 import views.html.*;
-
+import java.text.SimpleDateFormat;
+import java.text.DateFormat;
+import java.util.Date;
 
 
 public class Application extends Controller {
 
 
      public Result index() {
-
-        //List<Users> users = Users.find.where().orderBy("votes desc").findList();
-        //List<Users> users = Users.find.where().orderBy("votes desc").findList();
         List<Artworks> arts = Artworks.find.where().orderBy("votes desc").setMaxRows(9).findList();
-        //Artworks[] artArray=new Artworks[9];
-        //for (int i=0; i< artArray.length; i++)
-        //    artArray[i]=arts.get(i);
-
-        //List<Artworks> artworksT = users.get(1).artworks;
-        //System.out.println("printing in controller, size: " + arts.get(0).user.email);
-       // for(int i=0;i<artworksT.size();i++){
-      //      System.out.println(artworksT.get(i).filePath);
-       // }
-       return ok(index.render(arts.get(0),arts.get(1),arts.get(2),arts.get(3),arts.get(4),arts.get(5),arts.get(6),arts.get(7),arts.get(8),Form.form(Index.class)));
+        for (Artworks art : arts){
+            System.out.println(art.title);
+            System.out.println(art.votes);
+        }
+        return ok(index.render(arts.get(0),arts.get(1),arts.get(2),arts.get(3),arts.get(4),arts.get(5),arts.get(6),arts.get(7),arts.get(8),Form.form(Index.class)));
     }
 
     public Result secureIndex(String email) {
-
-           //List<Users> users = Users.find.where().orderBy("votes desc").findList();
-           //List<Users> users = Users.find.where().orderBy("votes desc").findList();
-           List<Artworks> arts = Artworks.find.where().orderBy("votes desc").setMaxRows(9).findList();
-           //Artworks[] artArray=new Artworks[9];
-           //for (int i=0; i< artArray.length; i++)
-           //    artArray[i]=arts.get(i);
-
-           //List<Artworks> artworksT = users.get(1).artworks;
-           //System.out.println("printing in controller, size: " + arts.get(0).user.email);
-          // for(int i=0;i<artworksT.size();i++){
-         //      System.out.println(artworksT.get(i).filePath);
-          // }
-          return ok(secureIndex.render(arts.get(0),arts.get(1),arts.get(2),arts.get(3),arts.get(4),arts.get(5),arts.get(6),arts.get(7),arts.get(8),Form.form(Index.class), Users.findByEmail(email)));
+            List<Artworks> arts = Artworks.find.where().orderBy("votes desc").setMaxRows(9).findList();
+            for (int i=0; i< arts.size(); i++){
+                String auctionEndDate = arts.get(i).auction.closeDate;
+                DateFormat df = new SimpleDateFormat("MMM dd, yyyy", Locale.ENGLISH);
+                try{
+                    Date result = df.parse(auctionEndDate);
+                    Date today = new Date();
+                    if(arts.get(i).auction.ended==0 && today.after(result)){ 
+                        arts.get(i).auction.ended=1;
+                        arts.get(i).auction.save();
+                    }
+                }
+                catch(Exception e) {
+                    e.printStackTrace(); 
+                }
+            }
+            return ok(secureIndex.render(arts.get(0),arts.get(1),arts.get(2),arts.get(3),arts.get(4),arts.get(5),arts.get(6),arts.get(7),arts.get(8),Form.form(Index.class), Users.findByEmail(email)));
    }
-
 
     public Result login() {
         return ok(
@@ -91,29 +87,43 @@ public class Application extends Controller {
 	    public Long artId;
 	}
 
-    public Result submitBid(){
+    public Result click(String flag){
         Form<Index> indexForm = Form.form(Index.class).bindFromRequest();
-        Long artId=indexForm.get().artId;
-        Artworks art=Artworks.find.byId(artId);
-        Long bid=indexForm.get().bid;
-        if (bid==-1){
-            if (art.votedOn==0){
-                art.votes++;
-                art.votedOn=1;
-                art.save();
-            }
+        Long artId = indexForm.get().artId;
+        Artworks art = Artworks.find.byId(artId);
+        Users user = Users.findByEmail(session("email"));
+        if (flag.equals("upvote")){
+            return upvote(art, user);
+        } else {
+            return submitBid(art, user, indexForm);
         }
-        else{
-            if (art.auction.currentBid<bid){
-                art.auction.currentBid=bid;
-                art.auction.haveHighBid="Yes";
-                art.auction.bidCount++;
-                art.auction.save();
-            }
+    }
+
+    public Result upvote(Artworks art, Users user){
+        String email = session("email");
+        if (!art.users.contains(user)){
+            art.votes++;
+            System.out.println(art.votes);
+            art.users.add(user);
+            art.save();
         }
         return redirect(
-                routes.Application.index()
-            );
+                routes.Application.secureIndex(user.email)
+        );
+    }
+        
+    public Result submitBid(Artworks art, Users user, Form<Index> indexForm){  
+        Long bid = indexForm.get().bid;
+        if (art.auction.currentBid<bid){
+            art.auction.currentBid=bid;
+            art.auction.userWithHighBid=user;
+            art.auction.bidCount++;
+            art.auction.save();
+        }
+        System.out.println("bid");
+        return redirect(
+                routes.Application.secureIndex(user.email)
+        );
 
     }
 
