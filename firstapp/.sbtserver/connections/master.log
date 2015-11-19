@@ -1,16 +1,34 @@
-New log file opened at Wed Nov 18 19:52:54 EST 2015 by 89909@Robs-MacBook-Pro.local
-Taking next connection to: 65291
-New client attempting to connect on port: 65292-65291
-  Address = /192.168.2.38:65291
-This client on port 65292 has uuid 3614b184-d487-4c04-8a7b-633c3429d1e8 configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
-Connected Clients: play-fork-run-3614b184-d487-4c04-8a7b-633c3429d1e8
-Taking next connection to: 65291
+New log file opened at Wed Nov 18 21:33:11 EST 2015 by 95220@Robs-MacBook-Pro.local
+Taking next connection to: 51260
+New client attempting to connect on port: 51261-51260
+  Address = /192.168.2.38:51260
+This client on port 51261 has uuid b7419d65-f858-4450-9ba4-9c3e2201d2d6 configName activator humanReadableName Activator protocolVersion 3 featureTags Vector()
+Connected Clients: activator-b7419d65-f858-4450-9ba4-9c3e2201d2d6
+Taking next connection to: 51260
+New client attempting to connect on port: 51297-51260
+  Address = /192.168.2.38:51260
+Handshake exception on socket: 51297
+sbt.impl.ipc.HandshakeException: Unable to perform handshake
+	at sbt.impl.ipc.Peer.handshake(IPC.scala:46)
+	at sbt.impl.ipc.MultiClientServer.<init>(IPC.scala:150)
+	at sbt.server.SbtServerSocketHandler$$anon$1.run(SbtServerSocketHandler.scala:43)
+Caused by: java.io.EOFException
+	at java.io.DataInputStream.readInt(DataInputStream.java:392)
+	at sbt.impl.ipc.Peer.receive(IPC.scala:95)
+	at sbt.impl.ipc.Peer.handshake(IPC.scala:49)
+	... 2 more
+Taking next connection to: 51260
+New client attempting to connect on port: 51298-51260
+  Address = /192.168.2.38:51260
+This client on port 51298 has uuid 64a0600b-f779-4f59-a11a-2c82cf60fdbf configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
+Connected Clients: activator-b7419d65-f858-4450-9ba4-9c3e2201d2d6, play-fork-run-64a0600b-f779-4f59-a11a-2c82cf60fdbf
+Taking next connection to: 51260
 Checking to see if clients are empty...
 We have 1 non-daemon clients, continuing serving connections.
-Taking next connection to: 65291
+Taking next connection to: 51260
 Checking to see if clients are empty...
-No non-daemon clients connected after 3 min. Shutting down.
-Server socket thread exiting.
-0 clients open, will close them...
-All client sockets have been closed.
-Closing the 89909@Robs-MacBook-Pro.local logs at Wed Nov 18 19:58:54 EST 2015, goodbye.
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 51260
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 51260
