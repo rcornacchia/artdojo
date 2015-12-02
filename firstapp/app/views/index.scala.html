@@ -56,7 +56,7 @@
                     <div class="col-lg-4 col-sm-6 col-xs-12">
                     <!-- image trigger modal -->
                         <a data-toggle="modal" data-target="#myModal@i">
-                            <img src=@arts(i).filePath class="gridImage">
+                            <img src=@arts(i).filePath class="gridImage" onclick="endAuction(@arts(i).auction.ended, 'bid@i', 'submit@i','modalFooter@i');">
                         </a>
                         <style type="text/css"></style>
                         <!-- Modal -->
@@ -91,7 +91,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="modal-footer">
+                                    <div class="modal-footer" id="modalFooter@i">
                                         <div class="container-fluid">
                                             <div class="row">
                                                 <div class="col-lg-2 col-sm-2 col-xs-2">
