@@ -16,7 +16,7 @@ public class Application extends Controller {
 
      public Result index() {
         List<Artworks> arts = Artworks.find.where().orderBy("votes desc").setMaxRows(9).findList();
-        return ok(index.render(arts.get(0),arts.get(1),arts.get(2),arts.get(3),arts.get(4),arts.get(5),arts.get(6),arts.get(7),arts.get(8), Form.form(Index.class)));
+        return ok(index.render(arts, Form.form(Index.class)));
     }
 
     public Result secureIndex(String email) {
