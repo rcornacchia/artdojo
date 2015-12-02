@@ -55,17 +55,17 @@
                 @if(i % 3 == 0) { <div class="row"> }
                     <div class="col-lg-4 col-sm-6 col-xs-12">
                     <!-- image trigger modal -->
-                        <a data-toggle="modal" data-target="#myModal">
+                        <a data-toggle="modal" data-target="#myModal@i">
                             <img src=@arts(i).filePath class="gridImage">
                         </a>
                         <style type="text/css"></style>
                         <!-- Modal -->
-                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal fade" id="myModal@i" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                        <h4 class="modal-title" id="myModalLabel">@arts(i).title</h4>
+                                        <h4 class="modal-title" id="myModalLabel@i">@arts(i).title</h4>
                                     </div>
                                     <div class="row">
                                         <div class="modal-body">
@@ -75,7 +75,7 @@
                                             <div class="col-lg-6 col-sm-6 col-xs-6">
                                                 User: @arts(i).user.username
                                                 <br>
-                                                Votes: <p id="numVotes">@arts(i).votes</p>
+                                                Votes: <p class="numVotes">@arts(i).votes</p>
                                                 <br>
                                                 @helper.form(routes.Application.login()) {
                                                 <p>
