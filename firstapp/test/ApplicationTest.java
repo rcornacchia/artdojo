@@ -25,6 +25,7 @@ import java.text.SimpleDateFormat;
 import java.text.DateFormat;
 import java.util.Date;
 
+
 import static play.test.Helpers.*;
 import static org.junit.Assert.*;
 
@@ -41,12 +42,7 @@ import com.google.common.collect.ImmutableMap;
 *
 */
 public class ApplicationTest {
-    Database database;
 
-    @Before
-    public void createDatabase() {
-        database = Databases.createFrom("com.mysql.jdbc.Driver","jdbc:mysql://dojo.ckxewtmfwxoa.us-west-2.rds.amazonaws.com:3306/paddyschema", ImmutableMap.of("user", "dojo","password", "dojomaster"));
-      }
 
     @Test
     public void simpleCheck() {
@@ -66,11 +62,7 @@ public class ApplicationTest {
                 Long originalBidCount=art.auction.bidCount;
                 models.Users originalHighBidder=art.auction.userWithHighBid;
                 
-                //models.Users newBidder=new models.Users();
-                //newBidder.username="TestingSubmitBid";
-                //newBidder.password="test";
-                //newBidder.email="test@test.com";
-                //newBidder.save();
+             
                 models.Users newBidder=models.Users.findByEmail("test@test.com");
                 
                 controllers.Application.Index index= new controllers.Application.Index();
@@ -119,6 +111,12 @@ public class ApplicationTest {
             }
         });
 
+    }
+    
+    @Test
+    public void authenticateTest() { 
+              int a = 2 + 2; 
+              assertEquals(4, a);
     }
             
    // @Test
