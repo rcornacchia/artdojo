@@ -10,18 +10,11 @@ public class Users extends Model {
 
     @Id
     public Long uid;
-
+    
 
     public String username;
     public String password;
     public String email;
-
-    //@ManyToMany
-    //public List<Artworks> artworks;
-    //@ManyToMany(mappedBy = "users")
-    //public List<Artworks> artworks;
-    //@ManyToMany(mappedBy="users")
-    //public List<Artworks> artworks;
 
     @OneToMany(cascade = CascadeType.ALL)
     public List<Artworks> artworks;
