@@ -129,22 +129,43 @@ public class ApplicationTest {
         });
     }
     
-     @Test
+    @Test
     public void authenticateTest() { 
         running(fakeApplication(), new Runnable() {
             public void run() {
             
+            //define testUser 
             models.Users testUser = new models.Users();
+            testUser.username = "TestingSubmitBid";
+            testUser.password = "test";
+            testUser.email = "test@test.com";
+            
+            
+            //test 1: basic test (findByEmail())
             models.Users resultUser = new models.Users();
             controllers.Application test = new controllers.Application();
 
-            testUser.username = "josh";
-            testUser.password = "jf";
-            testUser.email = "jpf2141@columbia.edu";
             
             resultUser = models.Users.findByEmail(testUser.email);
-            System.out.println(("test: " + (String) testUser.email) + "" + (String) resultUser.email);
+            System.out.println(("\ntest: " + (String) testUser.email) 
+                + "\tresult: " + (String) resultUser.email);
             assertEquals((String) resultUser.username, (String) testUser.username);
+            assertEquals((String) resultUser.password, (String) testUser.password);
+            assertEquals((String) resultUser.email, (String) testUser.email);
+            
+            
+            
+            //test 2: authenticateUser() method test
+            resultUser = new models.Users();    //reset resultUser
+            System.out.println((String) resultUser.email);  //check that it is null
+            
+            resultUser = models.Users.authenticate(testUser.email, testUser.password);
+            System.out.println(("\ntest: " + (String) testUser.email) 
+                + "\tresult: " + (String) resultUser.email);
+            assertEquals((String) resultUser.username, (String) testUser.username);
+            assertEquals((String) resultUser.password, (String) testUser.password);
+            assertEquals((String) resultUser.email, (String) testUser.email);
+            
             }
         });
     }
