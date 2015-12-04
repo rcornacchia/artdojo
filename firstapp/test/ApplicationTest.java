@@ -41,30 +41,18 @@ import com.google.common.collect.ImmutableMap;
 *
 */
 public class ApplicationTest {
-    Database database;
-
-    @Before
-    public void createDatabase() {
-        database = Databases.createFrom("com.mysql.jdbc.Driver","jdbc:mysql://dojo.ckxewtmfwxoa.us-west-2.rds.amazonaws.com:3306/paddyschema", ImmutableMap.of("user", "dojo","password", "dojomaster"));
-      }
-
-    @Test
-    public void simpleCheck() {
-        int a = 1 + 1;
-        assertEquals(2, a);
-    }
     
     @Test
-    public void submitBitTest(){
+    public void submitBidTest(){
         running(fakeApplication(), new Runnable() {
             public void run() {
                 models.Auctions auction = new models.Auctions();
-                controllers.Application test=new controllers.Application();
+                controllers.Application test = new controllers.Application();
 
                 models.Artworks art = models.Artworks.find.byId(1L);
-                Long originalBid=art.auction.currentBid;
-                Long originalBidCount=art.auction.bidCount;
-                models.Users originalHighBidder=art.auction.userWithHighBid;
+                Long originalBid = art.auction.currentBid;
+                Long originalBidCount = art.auction.bidCount;
+                models.Users originalHighBidder = art.auction.userWithHighBid;
                 
                 //models.Users newBidder=new models.Users();
                 //newBidder.username="TestingSubmitBid";
@@ -73,9 +61,9 @@ public class ApplicationTest {
                 //newBidder.save();
                 models.Users newBidder=models.Users.findByEmail("test@test.com");
                 
-                controllers.Application.Index index= new controllers.Application.Index();
-                index.artId=art.artid;
-                Form<controllers.Application.Index> indexForm=Form.form(controllers.Application.Index.class);
+                controllers.Application.Index index = new controllers.Application.Index();
+                index.artId = art.artid;
+                Form<controllers.Application.Index> indexForm = Form.form(controllers.Application.Index.class);
 
                 //check bid below high bid
                 index.bid=0L;
@@ -102,7 +90,7 @@ public class ApplicationTest {
                 
                 
                 //check bid above high bid
-                index.bid=originalBid + 25;
+                index.bid = originalBid + 25;
                 indexForm = indexForm.fill(index);
         
                 test.submitBid(art,newBidder,indexForm);
@@ -111,16 +99,41 @@ public class ApplicationTest {
                 assertEquals((Long) art.auction.bidCount,(Long) (originalBidCount+1));
                 assertEquals((models.Users) art.auction.userWithHighBid, (models.Users) newBidder);
                 
-
-                art.auction.userWithHighBid=originalHighBidder;
-                art.auction.bidCount=originalBidCount;
-                art.auction.userWithHighBid=originalHighBidder;
+                art.auction.bidCount = originalBidCount;
+                art.auction.userWithHighBid = originalHighBidder;
                 art.save();
             }
         });
-
     }
-            
+    
+    @Test
+    public void upvoteTest(){
+        running(fakeApplication(), new Runnable() {
+            public void run() {
+                controllers.Application test = new controllers.Application();
+                models.Artworks art = models.Artworks.find.byId(1L);
+                models.Users user = models.Users.findByEmail("test@test.com");
+                
+                // test initial conditions are correct
+                assertEquals(art.votes, 11);
+                assertTrue(!art.users.contains(user));
+                assertEquals(user.username, "TestingSubmitBid");
+                
+                test.upvote(art, user);
+                
+                // test that upvote works
+                assertEquals(art.votes, 12);
+                assertTrue(art.users.contains(user));
+                
+                test.upvote(art, user);
+                
+                // test that removing upvote works
+                assertEquals(art.votes, 11);
+                assertTrue(!art.users.contains(user));
+            }
+        });
+    }
+    
    // @Test
    // public void testCallIndex() {
    //     Result result = callAction(controllers.routes.ref.Application.index(),new FakeRequest(GET, "/"));

@@ -96,7 +96,6 @@ public class Application extends Controller {
     }
 
     public Result upvote(Artworks art, Users user){
-        String email = session("email");
         if (!art.users.contains(user)){
             art.votes++;
             art.users.add(user);
