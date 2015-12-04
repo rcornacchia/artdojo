@@ -145,7 +145,7 @@ public class ApplicationTest {
             testUserError.email = "testError@test.com";
             
             
-            
+            //////////////////////////////////////////////////////////////////////////
             //test 1: basic test (findByEmail()) 
             //tests that findByEmail returns correct User when 
             //valid email is inputed into the database
@@ -164,7 +164,7 @@ public class ApplicationTest {
             assertNull(resultUser);
             
             
-            
+            //////////////////////////////////////////////////////////////////////////
             //test 2: User.authenticate() method test
             //tests that Users.authenticate() returns correct User when 
             //valid email is inputed into the database
@@ -184,7 +184,7 @@ public class ApplicationTest {
             
             
             
-            
+            //////////////////////////////////////////////////////////////////////////
             //test 3: form & Application.authenticate() testing
             //tests that Application.authenticate returns the correct 
             //result when a user attempts to log in
@@ -251,18 +251,4 @@ public class ApplicationTest {
             }
         });
     }
-    
-    /*@Test
-    public void testCallIndex() {
-        Result result = callAction(controllers.routes.ref.Application.index(),new FakeRequest(GET, "/"));
-        assertThat(status(result)).isEqualTo(OK);
-    }
-
-    @Test
-    public void renderTemplate() {
-        Content html = views.html.index.render();
-        assertEquals("text/html", contentType(html));
-        assertTrue(contentAsString(html).contains("Your new application is ready."));
-    }*/
-
 }
