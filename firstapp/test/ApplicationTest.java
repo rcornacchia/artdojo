@@ -149,17 +149,41 @@ public class ApplicationTest {
         });
     }
     
-   // @Test
-   // public void testCallIndex() {
-   //     Result result = callAction(controllers.routes.ref.Application.index(),new FakeRequest(GET, "/"));
-  //      assertThat(status(result)).isEqualTo(OK);
-  //  }
+    /*@Test
+    public void addUserTest(){
+        running(fakeApplication(), new Runnable() {
+            public void run() {
+                controllers.Application test = new controllers.Application();
+                Form<controllers.Application.Register> form = Form.form(controllers.Application.Register.class);
+                controllers.Application.Register register = new controllers.Application.Register();
+                String email = "test@test.com";
+                register.email = email;
+                register.username = "test";
+                register.password = "test2";
+                form = form.fill(register);
+                test.addUser(form);
+                
+                // test that adding a user with an already used email does not work
+                assertEquals(models.Users.findByEmail(email).username, "TestingSubmitBid");
+                
+                // test that adding a user works - TODO
+                
+                // test that adding a user with empty fields does not work
+            }
+        });
+    }*/
+    
+    /*@Test
+    public void testCallIndex() {
+        Result result = callAction(controllers.routes.ref.Application.index(),new FakeRequest(GET, "/"));
+        assertThat(status(result)).isEqualTo(OK);
+    }
 
-//    @Test
-//    public void renderTemplate() {
-  //      Content html = views.html.index.render();
- //       assertEquals("text/html", contentType(html));
-//        assertTrue(contentAsString(html).contains("Your new application is ready."));
-//    }
+    @Test
+    public void renderTemplate() {
+        Content html = views.html.index.render();
+        assertEquals("text/html", contentType(html));
+        assertTrue(contentAsString(html).contains("Your new application is ready."));
+    }*/
 
 }
