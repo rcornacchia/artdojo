@@ -135,57 +135,90 @@ public class ApplicationTest {
             public void run() {
             
             //define testUser 
-            models.Users testUser = 
-                new models.Users();
+            models.Users testUser = new models.Users();
+            models.Users testUserError = new models.Users();
             testUser.username = "TestingSubmitBid";
             testUser.password = "test";
             testUser.email = "test@test.com";
+            testUserError.username = "TestingSubmitBidError";
+            testUserError.password = "testError";
+            testUserError.email = "testError@test.com";
             
             
-            //test 1: basic test (findByEmail())
-            models.Users resultUser = 
-                new models.Users();
+            
+            //test 1: basic test (findByEmail()) 
+            //tests that findByEmail returns correct User when 
+            //valid email is inputed into the database
+            models.Users resultUser = new models.Users();
 
             
             resultUser = models.Users.findByEmail(testUser.email);
             System.out.println(("\ntest: " + (String) testUser.email) 
                 + "\tresult: " + (String) resultUser.email);
+            //correct credentials
             assertEquals((String) resultUser.username, (String) testUser.username);
             assertEquals((String) resultUser.password, (String) testUser.password);
             assertEquals((String) resultUser.email, (String) testUser.email);
+            //incorrect credentials
+            resultUser = models.Users.findByEmail(testUserError.email);
+            assertNull(resultUser);
             
             
             
             //test 2: User.authenticate() method test
+            //tests that Users.authenticate() returns correct User when 
+            //valid email is inputed into the database
             resultUser = new models.Users();    //reset resultUser
             System.out.println((String) resultUser.email);  //check that it is null
             
             resultUser = models.Users.authenticate(testUser.email, testUser.password);
             System.out.println(("\ntest: " + (String) testUser.email) 
                 + "\tresult: " + (String) resultUser.email);
+            //correct credentials 
             assertEquals((String) resultUser.username, (String) testUser.username);
             assertEquals((String) resultUser.password, (String) testUser.password);
             assertEquals((String) resultUser.email, (String) testUser.email);
+            //incorrect credentials
+            resultUser = models.Users.authenticate(testUserError.email, testUserError.password);
+            assertNull(resultUser);
+            
+            
             
             
             //test 3: form & Application.authenticate() testing
+            //tests that Application.authenticate returns the correct 
+            //result when a user attempts to log in
+            //
+            //tests for correct password, incorrect password, and incorrect username
+            resultUser = new models.Users();    //reset resultUser
+
             controllers.Application test = new controllers.Application();
             controllers.Application.Login loginObject = 
                 new controllers.Application.Login();
             
-            loginObject.email = resultUser.email;  //populate email field for matching
+            loginObject.email = testUser.email;  //populate email field for matching
             
             Form<controllers.Application.Login> loginForm =
                 Form.form(controllers.Application.Login.class);
                 
-                //check when name is correct
-                loginObject.password = testUser.password;    //correct password
-                loginForm = loginForm.fill(loginObject);
+            //check when name is correct
+            loginObject.password = testUser.password;    //correct password
+            loginForm = loginForm.fill(loginObject);
                 
-                test.authenticate();
-                assertEquals((String) x.username, (String) testUser.username);
-                assertEquals((String) x.password, (String) testUser.password);
-                
+
+            // //check when form credentials are correct 
+            assertTrue(!(loginForm.hasErrors()));
+            resultUser = models.Users.authenticate(loginForm.get().email, loginForm.get().password);
+            assertEquals((String) resultUser.username, (String) testUser.username);
+            assertEquals((String) resultUser.password, (String) testUser.password);
+            
+            //check when form credentials are not correct
+            loginObject.password = testUserError.password;    //incorrect password
+            loginForm = loginForm.fill(loginObject);
+            assertTrue(!(loginForm.hasErrors()));
+            resultUser = models.Users.authenticate(loginForm.get().email, loginForm.get().password);
+            assertNull(resultUser);
+            
             }
         });
     }
