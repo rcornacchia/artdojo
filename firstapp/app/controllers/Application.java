@@ -136,7 +136,6 @@ public class Application extends Controller {
 
             System.out.println("Success");
 
-            session("email", registrationForm.get().email);
             return redirect(
                 routes.Application.index()
             );
