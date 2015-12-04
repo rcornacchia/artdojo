@@ -54,11 +54,6 @@ public class ApplicationTest {
                 Long originalBidCount = art.auction.bidCount;
                 models.Users originalHighBidder = art.auction.userWithHighBid;
                 
-                //models.Users newBidder=new models.Users();
-                //newBidder.username="TestingSubmitBid";
-                //newBidder.password="test";
-                //newBidder.email="test@test.com";
-                //newBidder.save();
                 models.Users newBidder=models.Users.findByEmail("test@test.com");
                 
                 controllers.Application.Index index = new controllers.Application.Index();
