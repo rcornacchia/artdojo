@@ -143,7 +143,6 @@ public class ApplicationTest {
             
             //test 1: basic test (findByEmail())
             models.Users resultUser = new models.Users();
-            controllers.Application test = new controllers.Application();
 
             
             resultUser = models.Users.findByEmail(testUser.email);
@@ -155,7 +154,7 @@ public class ApplicationTest {
             
             
             
-            //test 2: authenticateUser() method test
+            //test 2: User.authenticate() method test
             resultUser = new models.Users();    //reset resultUser
             System.out.println((String) resultUser.email);  //check that it is null
             
@@ -165,6 +164,11 @@ public class ApplicationTest {
             assertEquals((String) resultUser.username, (String) testUser.username);
             assertEquals((String) resultUser.password, (String) testUser.password);
             assertEquals((String) resultUser.email, (String) testUser.email);
+            
+            
+            //test 3: form & Application.authenticate() testing
+            controllers.Application test = new controllers.Application();
+            controllers.Application.Login login = new controllers.Application.Login();
             
             }
         });
