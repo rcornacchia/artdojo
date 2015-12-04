@@ -135,14 +135,16 @@ public class ApplicationTest {
             public void run() {
             
             //define testUser 
-            models.Users testUser = new models.Users();
+            models.Users testUser = 
+                new models.Users();
             testUser.username = "TestingSubmitBid";
             testUser.password = "test";
             testUser.email = "test@test.com";
             
             
             //test 1: basic test (findByEmail())
-            models.Users resultUser = new models.Users();
+            models.Users resultUser = 
+                new models.Users();
 
             
             resultUser = models.Users.findByEmail(testUser.email);
@@ -168,8 +170,22 @@ public class ApplicationTest {
             
             //test 3: form & Application.authenticate() testing
             controllers.Application test = new controllers.Application();
-            controllers.Application.Login login = new controllers.Application.Login();
+            controllers.Application.Login loginObject = 
+                new controllers.Application.Login();
             
+            loginObject.email = resultUser.email;  //populate email field for matching
+            
+            Form<controllers.Application.Login> loginForm =
+                Form.form(controllers.Application.Login.class);
+                
+                //check when name is correct
+                loginObject.password = testUser.password;    //correct password
+                loginForm = loginForm.fill(loginObject);
+                
+                test.authenticate();
+                assertEquals((String) x.username, (String) testUser.username);
+                assertEquals((String) x.password, (String) testUser.password);
+                
             }
         });
     }

@@ -67,7 +67,6 @@ public class Application extends Controller {
 	}
 
     public static class Login {
-
 	    public String email;
 	    public String password;
         public String validate() {
