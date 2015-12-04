@@ -170,29 +170,34 @@ public class ApplicationTest {
         });
     }
     
-    /*@Test
+    @Test
     public void addUserTest(){
         running(fakeApplication(), new Runnable() {
             public void run() {
                 controllers.Application test = new controllers.Application();
                 Form<controllers.Application.Register> form = Form.form(controllers.Application.Register.class);
                 controllers.Application.Register register = new controllers.Application.Register();
-                String email = "test@test.com";
+                String email = "test1@test1.com";
                 register.email = email;
-                register.username = "test";
-                register.password = "test2";
+                register.username = "test1";
+                register.password = "test1";
                 form = form.fill(register);
-                test.addUser(form);
+                // test.addUser(form); - TODO
                 
-                // test that adding a user with an already used email does not work
-                assertEquals(models.Users.findByEmail(email).username, "TestingSubmitBid");
+                models.Users.createUser(form.get().email, form.get().username, form.get().password);
                 
+                // test that creating a user in the database works
+                assertTrue(models.Users.findByEmail(email) != null);
+                
+                models.Users.findByEmail(email).delete(); // FAILS HERE
+    
                 // test that adding a user works - TODO
                 
-                // test that adding a user with empty fields does not work
+                // test that adding a user with empty fields does not work - TODO
+    
             }
         });
-    }*/
+    }
     
     /*@Test
     public void testCallIndex() {
