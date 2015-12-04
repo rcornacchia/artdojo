@@ -129,6 +129,26 @@ public class ApplicationTest {
         });
     }
     
+     @Test
+    public void authenticateTest() { 
+        running(fakeApplication(), new Runnable() {
+            public void run() {
+            
+            models.Users testUser = new models.Users();
+            models.Users resultUser = new models.Users();
+            controllers.Application test = new controllers.Application();
+
+            testUser.username = "josh";
+            testUser.password = "jf";
+            testUser.email = "jpf2141@columbia.edu";
+            
+            resultUser = models.Users.findByEmail(testUser.email);
+            System.out.println(("test: " + (String) testUser.email) + "" + (String) resultUser.email);
+            assertEquals((String) resultUser.username, (String) testUser.username);
+            }
+        });
+    }
+    
    // @Test
    // public void testCallIndex() {
    //     Result result = callAction(controllers.routes.ref.Application.index(),new FakeRequest(GET, "/"));
