@@ -38,7 +38,48 @@ public class Application extends Controller {
             }
             return ok(secureIndex.render(arts, Form.form(Index.class), Users.findByEmail(email)));
    }
+   
+   public Result artistIndex(String email) {
+            Users artist = Users.findByEmail(email);
+            long artistID = artist.uid;
+            List<Artworks> arts = Artworks.find.where().orderBy("votes desc").setMaxRows(9).findList();
+            for (int i=0; i< arts.size(); i++){
+                String auctionEndDate = arts.get(i).auction.closeDate;
+                DateFormat df = new SimpleDateFormat("MMM dd, yyyy", Locale.ENGLISH);
+                try{
+                    Date result = df.parse(auctionEndDate);
+                    Date today = new Date();
+                    if(arts.get(i).auction.ended==0 && today.after(result)){ 
+                        arts.get(i).auction.ended=1;
+                        arts.get(i).auction.save();
+                    }
+                }
+                catch(Exception e) {
+                    e.printStackTrace(); 
+                }
+            }
+            return ok(artistIndex.render(arts, Form.form(Index.class), artist));
+   }
+	
+	 public Result authenticate() {
+        Form<Login> loginForm = Form.form(Login.class).bindFromRequest();
+            if (loginForm.hasErrors()) {
+                System.out.println("Failure");
+                return badRequest(login.render(loginForm));
+            } 
+            else {
+            session().clear();
+            Users x = Users.authenticate(loginForm.get().email, loginForm.get().password);
+            System.out.println(x.email);
+            System.out.println(x.username);
+            System.out.println("Success");
 
+            return redirect(
+                routes.Application.secureIndex(loginForm.get().email)
+            );
+            }
+    }
+    
     public Result login() {
         return ok(
             login.render(Form.form(Login.class))
@@ -141,25 +182,5 @@ public class Application extends Controller {
             );
         }
 
-    }
-    
-
-    public Result authenticate() {
-        Form<Login> loginForm = Form.form(Login.class).bindFromRequest();
-            if (loginForm.hasErrors()) {
-                System.out.println("Failure");
-                return badRequest(login.render(loginForm));
-            } 
-            else {
-            session().clear();
-            Users x = Users.authenticate(loginForm.get().email, loginForm.get().password);
-            System.out.println(x.email);
-            System.out.println(x.username);
-            System.out.println("Success");
-
-            return redirect(
-                routes.Application.secureIndex(loginForm.get().email)
-            );
-            }
     }
 }
