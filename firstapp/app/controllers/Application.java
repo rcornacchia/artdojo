@@ -9,6 +9,8 @@ import views.html.*;
 import java.text.SimpleDateFormat;
 import java.text.DateFormat;
 import java.util.Date;
+import java.io.File;
+
 
 
 public class Application extends Controller {
@@ -27,23 +29,23 @@ public class Application extends Controller {
                 try{
                     Date result = df.parse(auctionEndDate);
                     Date today = new Date();
-                    if(arts.get(i).auction.ended==0 && today.after(result)){ 
+                    if(arts.get(i).auction.ended==0 && today.after(result)){
                         arts.get(i).auction.ended=1;
                         arts.get(i).auction.save();
                     }
                 }
                 catch(Exception e) {
-                    e.printStackTrace(); 
+                    e.printStackTrace();
                 }
             }
             return ok(secureIndex.render(arts, Form.form(Index.class), Users.findByEmail(email)));
    }
-   
+
    public Result artistIndex() {
             Form<Artist> artistForm = Form.form(Artist.class).bindFromRequest();
             Long uid = artistForm.get().uid;
             Users artist = Users.findByUid(uid);
-            
+
             List<Artworks> arts = Artworks.find.where().eq("uid", uid).orderBy("votes desc").setMaxRows(9).findList();
             for (int i=0; i< arts.size(); i++){
                 String auctionEndDate = arts.get(i).auction.closeDate;
@@ -53,25 +55,25 @@ public class Application extends Controller {
                 try{
                     Date result = df.parse(auctionEndDate);
                     Date today = new Date();
-                    if(arts.get(i).auction.ended==0 && today.after(result)){ 
+                    if(arts.get(i).auction.ended==0 && today.after(result)){
                         arts.get(i).auction.ended=1;
                         arts.get(i).auction.save();
                     }
                 }
                 catch(Exception e) {
-                    e.printStackTrace(); 
+                    e.printStackTrace();
                 }
             }
             return ok(artistIndex.render(arts, Form.form(Index.class), artist));
-            
-   }
-	
+
+    }
+
 	 public Result authenticate() {
         Form<Login> loginForm = Form.form(Login.class).bindFromRequest();
             if (loginForm.hasErrors()) {
                 System.out.println("Failure");
                 return badRequest(login.render(loginForm));
-            } 
+            }
             else {
             session().clear();
             Users x = Users.authenticate(loginForm.get().email, loginForm.get().password);
@@ -84,7 +86,7 @@ public class Application extends Controller {
             );
             }
     }
-    
+
     public Result login() {
         return ok(
             login.render(Form.form(Login.class))
@@ -97,6 +99,21 @@ public class Application extends Controller {
         );
     }
 
+    public Result uploadPage() {
+        return ok(
+            upload.render(Form.form(Upload.class))
+        );
+    }
+
+    public static class Upload {
+        public File picture;
+    }
+
+    public Result upload() {
+        System.out.println("found one");
+        // picture.file = request().body().asRaw().asFile();
+        return ok("File uploaded");
+    }
 
     public static class Artist {
         public long uid;
@@ -104,8 +121,7 @@ public class Application extends Controller {
 	    public String password;
 	    public String username;
     }
-    
-    
+
     public static class Register {
 
 	    public String email;
@@ -118,7 +134,6 @@ public class Application extends Controller {
             }
             return "Account with email already exists";
         }
-
 	}
 
     public static class Login {
@@ -164,8 +179,8 @@ public class Application extends Controller {
                 routes.Application.secureIndex(user.email)
         );
     }
-        
-    public Result submitBid(Artworks art, Users user, Form<Index> indexForm){  
+
+    public Result submitBid(Artworks art, Users user, Form<Index> indexForm){
         Long bid = indexForm.get().bid;
         if (art.auction.currentBid<bid){
             art.auction.currentBid=bid;

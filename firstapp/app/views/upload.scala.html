@@ -1,16 +1,26 @@
-@(title: String)(content: Html)
+@(form: Form[Application.Upload])
 
-<!DOCTYPE html>
-
-<html lang="en">
+<html>
     <head>
-        <title>user</title>
-        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
-        <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/favicon.png")">
-        <script src="@routes.Assets.versioned("javascripts/hello.js")" type="text/javascript"></script>
+        <h1><a href="@routes.Application.index" id="logo">Dojo</a></h1>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
+        integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ=="
+        crossorigin="anonymous">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/signin.css")">
+
     </head>
+
     <body>
-        <p>TEST</p>
-        @content
+
+        <div>
+            <h1>Upload a new image:</h1>
+            @helper.form(action = routes.Application.upload, 'enctype -> "multipart/form-data") {
+                <input type="file" class="" accept=".jpg, .png, .bmp" name="image">
+                <button type="submit">Upload image!</button>
+            }
+        </div>
+
+
     </body>
 </html>

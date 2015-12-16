@@ -21,7 +21,9 @@ POST    /secureIndex                controllers.Application.click(String)
 GET     /artistIndex                controllers.Application.artistIndex()
 POST    /artistIndex                controllers.Application.click(String)
 
-
+# upload
+GET     /uploadPage                 controllers.Application.uploadPage()
+POST    /upload                     controllers.Application.upload()
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
