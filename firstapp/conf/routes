@@ -14,10 +14,12 @@ GET     /register                   controllers.Application.register()
 POST    /register                   controllers.Application.addUser()
 
 # Secure Index after login
-GET     /secureIndex                controllers.Application.artistIndex(String)
+GET     /secureIndex                controllers.Application.secureIndex(String)
 POST    /secureIndex                controllers.Application.click(String)
 
-
+# Artist Index after login
+GET     /artistIndex                controllers.Application.artistIndex()
+POST    /artistIndex                controllers.Application.click(String)
 
 
 
