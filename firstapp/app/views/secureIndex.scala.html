@@ -91,7 +91,7 @@
                                                     </p>
                                                     }}
                                                     @helper.form(routes.Application.artistIndex()) {
-                                                        <input type=number name="uid" placeholder="Bid" value=@arts(i).uid>
+                                                        <input type=number name="uid" placeholder="Bid" value=@arts(i).uid hidden>
                                                         <button class="btn btn-primary">View @arts(i).user.username 's Page</button>
                                                     }
                                                 </div>

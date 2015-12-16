@@ -45,10 +45,11 @@ public class Application extends Controller {
             System.out.println("uid: "+ uid);
             Users artist = Users.findByUid(uid);
             
-            
-            List<Artworks> arts = Artworks.find.where().orderBy("votes desc").setMaxRows(9).findList();
+            List<Artworks> arts = Artworks.find.where().eq("uid", uid).orderBy("votes desc").setMaxRows(9).findList();
             for (int i=0; i< arts.size(); i++){
                 String auctionEndDate = arts.get(i).auction.closeDate;
+                System.out.println(auctionEndDate);
+
                 DateFormat df = new SimpleDateFormat("MMM dd, yyyy", Locale.ENGLISH);
                 try{
                     Date result = df.parse(auctionEndDate);
@@ -62,7 +63,6 @@ public class Application extends Controller {
                     e.printStackTrace(); 
                 }
             }
-            System.out.println("reached");
             return ok(artistIndex.render(arts, Form.form(Index.class), artist));
             
    }
@@ -100,7 +100,6 @@ public class Application extends Controller {
 
 
     public static class Artist {
-        public Users user;
         public long uid;
 	    public String email;
 	    public String password;
