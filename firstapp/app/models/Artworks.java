@@ -25,10 +25,12 @@ public class Artworks extends Model {
     @JoinColumn(name = "uid")
     public Users user;
     
+    
+    
+    
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "aucId")
     public Auctions auction;
     
     public static Finder<Long,Artworks> find = new Finder<Long,Artworks>(Long.class, Artworks.class); 
-    
 }

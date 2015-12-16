@@ -39,9 +39,13 @@ public class Application extends Controller {
             return ok(secureIndex.render(arts, Form.form(Index.class), Users.findByEmail(email)));
    }
    
-   public Result artistIndex(String email) {
-            Users artist = Users.findByEmail(email);
-            long artistID = artist.uid;
+   public Result artistIndex() {
+            Form<Artist> artistForm = Form.form(Artist.class).bindFromRequest();
+            Long uid = artistForm.get().uid;
+            System.out.println("uid: "+ uid);
+            Users artist = Users.findByUid(uid);
+            
+            
             List<Artworks> arts = Artworks.find.where().orderBy("votes desc").setMaxRows(9).findList();
             for (int i=0; i< arts.size(); i++){
                 String auctionEndDate = arts.get(i).auction.closeDate;
@@ -58,7 +62,9 @@ public class Application extends Controller {
                     e.printStackTrace(); 
                 }
             }
+            System.out.println("reached");
             return ok(artistIndex.render(arts, Form.form(Index.class), artist));
+            
    }
 	
 	 public Result authenticate() {
@@ -92,6 +98,16 @@ public class Application extends Controller {
         );
     }
 
+
+    public static class Artist {
+        public Users user;
+        public long uid;
+	    public String email;
+	    public String password;
+	    public String username;
+    }
+    
+    
     public static class Register {
 
 	    public String email;
@@ -110,6 +126,7 @@ public class Application extends Controller {
     public static class Login {
 	    public String email;
 	    public String password;
+	    public String username;
         public String validate() {
             if (Users.authenticate(email, password) == null) {
                 return "Invalid user or password";

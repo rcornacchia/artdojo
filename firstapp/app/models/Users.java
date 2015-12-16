@@ -21,12 +21,15 @@ public class Users extends Model {
 
     public static Finder<Long,Users> find = new Finder<Long,Users>(Long.class, Users.class);
 
+
     public static Users findByEmail(String email) {
         return find.where().eq("email", email).findUnique();
     }
-
-    // public static void register(String email)
-    // might be save instead
+    
+    public static Users findByUid(Long uid) {
+        return find.where().eq("uid", uid).findUnique();
+    }
+    
 
     public static Users authenticate(String email, String password) {
         System.out.print("Email: ");
