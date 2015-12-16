@@ -149,19 +149,17 @@ public class Application extends Controller {
             if (loginForm.hasErrors()) {
                 System.out.println("Failure");
                 return badRequest(login.render(loginForm));
-            } else {
+            } 
+            else {
             session().clear();
             Users x = Users.authenticate(loginForm.get().email, loginForm.get().password);
             System.out.println(x.email);
             System.out.println(x.username);
-            System.out.println(x.password);
-
             System.out.println("Success");
 
-            session("email", loginForm.get().email);
             return redirect(
                 routes.Application.secureIndex(loginForm.get().email)
             );
-        }
+            }
     }
 }
