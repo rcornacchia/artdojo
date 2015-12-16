@@ -1,5 +1,5 @@
-New log file opened at Wed Dec 16 16:48:09 EST 2015 by 55309@Robs-MacBook-Pro.local
-jvm 55309@Robs-MacBook-Pro.local
+New log file opened at Wed Dec 16 18:01:27 EST 2015 by 58722@Robs-MacBook-Pro.local
+jvm 58722@Robs-MacBook-Pro.local
 jvm vmName=Java HotSpot(TM) 64-Bit Server VM vmVendor=Oracle Corporation vmVersion=25.20-b23
 jvm specName=Java Virtual Machine Specification specVendor=Oracle Corporation specVersion=1.8
 jvm arguments: [-Xms256m, -Xmx1024m, -XX:MetaspaceSize=64m, -XX:MaxMetaspaceSize=256m]
@@ -27,7 +27,7 @@ sorting: ns: List(sbt.plugins.CorePlugin, sbt.plugins.IvyPlugin, sbt.plugins.Jvm
   :: sorted deduced result: List(sbt.plugins.CorePlugin, sbt.plugins.IvyPlugin, sbt.plugins.JvmPlugin, sbt.plugins.JUnitXmlReportPlugin)
 [Loading] Done in /Users/Rob/code/zrealdojo/dojo/firstapp/project, returning: (firstapp-build)
 Loading project definition from /Users/Rob/code/zrealdojo/dojo/firstapp/project
-Running task... Cancel: sbt.TaskCancellationStrategy$Null$@14d0c2a9, check cycles: false
+Running task... Cancel: sbt.TaskCancellationStrategy$Null$@7e501203, check cycles: false
 
 Initial source changes: 
 	removed:Set()
@@ -73,4 +73,4 @@ Waiting for socket thread
 Waiting for request processor thread
 Waiting for command engine result
 Returning control to sbt launcher with result Exit(0)
-Closing the 55309@Robs-MacBook-Pro.local logs at Wed Dec 16 16:48:13 EST 2015, goodbye.
+Closing the 58722@Robs-MacBook-Pro.local logs at Wed Dec 16 18:01:32 EST 2015, goodbye.

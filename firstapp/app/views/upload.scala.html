@@ -1,26 +1,5 @@
 @(form: Form[Application.Upload])
 
 <html>
-    <head>
-        <h1><a href="@routes.Application.index" id="logo">Dojo</a></h1>
-
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
-        integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ=="
-        crossorigin="anonymous">
-        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/signin.css")">
-
-    </head>
-
-    <body>
-
-        <div>
-            <h1>Upload a new image:</h1>
-            @helper.form(action = routes.Application.upload, 'enctype -> "multipart/form-data") {
-                <input type="file" class="" accept=".jpg, .png, .bmp" name="image">
-                <button type="submit">Upload image!</button>
-            }
-        </div>
-
-
-    </body>
+    hello
 </html>
