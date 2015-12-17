@@ -121,6 +121,7 @@ public class Application extends Controller {
     public Result upload() {
         Form<Upload> uploadForm = Form.form(Upload.class).bindFromRequest();
         File file = uploadForm.get().picture;
+        System.out.println("file");
         // get title
         // upload to s3
         // add artwork filepath and title to db
@@ -145,7 +146,7 @@ public class Application extends Controller {
 	    public String password;
         public String validate() {
             System.out.println(email);
-            if (Users.findByEmail(email) == null && email != null) {
+            if (Users.findByEmail(email) == null) {
                 return null;
             }
             return "Account with email already exists";
