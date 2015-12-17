@@ -4,13 +4,15 @@ import java.util.*;
 import javax.persistence.*;
 import play.db.ebean.*;
 import play.data.format.*;
+import play.data.validation.Constraints.*;
+
 
 @Entity
 public class Users extends Model {
 
     @Id
     public Long uid;
-    
+
 
     public String username;
     public String password;
@@ -25,11 +27,13 @@ public class Users extends Model {
     public static Users findByEmail(String email) {
         return find.where().eq("email", email).findUnique();
     }
-    
+
     public static Users findByUid(Long uid) {
         return find.where().eq("uid", uid).findUnique();
     }
-    
+
+
+
 
     public static Users authenticate(String email, String password) {
         System.out.print("Email: ");

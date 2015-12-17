@@ -1,5 +1,5 @@
-New log file opened at Wed Dec 16 18:01:27 EST 2015 by 58722@Robs-MacBook-Pro.local
-jvm 58722@Robs-MacBook-Pro.local
+New log file opened at Thu Dec 17 00:00:40 EST 2015 by 76367@Robs-MacBook-Pro.local
+jvm 76367@Robs-MacBook-Pro.local
 jvm vmName=Java HotSpot(TM) 64-Bit Server VM vmVendor=Oracle Corporation vmVersion=25.20-b23
 jvm specName=Java Virtual Machine Specification specVendor=Oracle Corporation specVersion=1.8
 jvm arguments: [-Xms256m, -Xmx1024m, -XX:MetaspaceSize=64m, -XX:MaxMetaspaceSize=256m]
@@ -27,7 +27,7 @@ sorting: ns: List(sbt.plugins.CorePlugin, sbt.plugins.IvyPlugin, sbt.plugins.Jvm
   :: sorted deduced result: List(sbt.plugins.CorePlugin, sbt.plugins.IvyPlugin, sbt.plugins.JvmPlugin, sbt.plugins.JUnitXmlReportPlugin)
 [Loading] Done in /Users/Rob/code/zrealdojo/dojo/firstapp/project, returning: (firstapp-build)
 Loading project definition from /Users/Rob/code/zrealdojo/dojo/firstapp/project
-Running task... Cancel: sbt.TaskCancellationStrategy$Null$@7e501203, check cycles: false
+Running task... Cancel: sbt.TaskCancellationStrategy$Null$@4db40f3d, check cycles: false
 
 Initial source changes: 
 	removed:Set()
@@ -67,10 +67,275 @@ Set current project to firstapp (in build file:/Users/Rob/code/zrealdojo/dojo/fi
 > iflast shell
 > server-send-ready-for-request
 > server-handle-next-server-request
+> {file:/Users/Rob/code/zrealdojo/dojo/firstapp/}root/compile:discoveredMainClasses
+Evaluating tasks: compile:discoveredMainClasses
+Running task... Cancel: sbt.server.ServerTaskCancellation@2253fbef, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set(/Users/Rob/code/zrealdojo/dojo/firstapp/app/models/Users.java)
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set(/Users/Rob/code/zrealdojo/dojo/firstapp/app/models/Users.java)
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set(/Users/Rob/code/zrealdojo/dojo/firstapp/app/models/Users.java)
+
+Read from stdout: Compiling 1 Java source to /Users/Rob/code/zrealdojo/dojo/firstapp/target/scala-2.11/classes...
+Compiling 1 Java source to /Users/Rob/code/zrealdojo/dojo/firstapp/target/scala-2.11/classes...
+Attempting to call com.sun.tools.javac.api.JavacTool@628b2360 directly...
+Read from stdout: /Users/Rob/code/zrealdojo/dojo/firstapp/app/models/Users.java:55: <identifier> expected
+/Users/Rob/code/zrealdojo/dojo/firstapp/app/models/Users.java:55: <identifier> expected
+Read from stdout: /Users/Rob/code/zrealdojo/dojo/firstapp/app/models/Users.java:57: <identifier> expected
+/Users/Rob/code/zrealdojo/dojo/firstapp/app/models/Users.java:57: <identifier> expected
+Read from stdout: /Users/Rob/code/zrealdojo/dojo/firstapp/app/models/Users.java:59: <identifier> expected
+/Users/Rob/code/zrealdojo/dojo/firstapp/app/models/Users.java:59: <identifier> expected
+Read from stdout: (compile:compileIncremental) javac returned nonzero exit code
+(compile:compileIncremental) javac returned nonzero exit code
+Total time: 1 s, completed Dec 17, 2015 12:00:45 AM
+> server-post-command-error-handler
+> server-post-command-cleanup
+> server-handle-next-server-request
+> {file:/Users/Rob/code/zrealdojo/dojo/firstapp/}root/compile:mainClass
+Evaluating tasks: compile:mainClass
+Running task... Cancel: sbt.server.ServerTaskCancellation@302f56f0, check cycles: false
+Total time: 0 s, completed Dec 17, 2015 12:00:45 AM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> {file:/Users/Rob/code/zrealdojo/dojo/firstapp/}root/compile:discoveredMainClasses
+Evaluating tasks: compile:discoveredMainClasses
+Running task... Cancel: sbt.server.ServerTaskCancellation@532a02f, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set(/Users/Rob/code/zrealdojo/dojo/firstapp/app/models/Users.java)
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set(/Users/Rob/code/zrealdojo/dojo/firstapp/app/models/Users.java)
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set(/Users/Rob/code/zrealdojo/dojo/firstapp/app/models/Users.java)
+
+Read from stdout: Compiling 1 Java source to /Users/Rob/code/zrealdojo/dojo/firstapp/target/scala-2.11/classes...
+Compiling 1 Java source to /Users/Rob/code/zrealdojo/dojo/firstapp/target/scala-2.11/classes...
+Attempting to call com.sun.tools.javac.api.JavacTool@1fde62b1 directly...
+Read from stdout: /Users/Rob/code/zrealdojo/dojo/firstapp/app/models/Users.java:55: <identifier> expected
+/Users/Rob/code/zrealdojo/dojo/firstapp/app/models/Users.java:55: <identifier> expected
+Read from stdout: /Users/Rob/code/zrealdojo/dojo/firstapp/app/models/Users.java:57: <identifier> expected
+/Users/Rob/code/zrealdojo/dojo/firstapp/app/models/Users.java:57: <identifier> expected
+Read from stdout: /Users/Rob/code/zrealdojo/dojo/firstapp/app/models/Users.java:59: <identifier> expected
+/Users/Rob/code/zrealdojo/dojo/firstapp/app/models/Users.java:59: <identifier> expected
+Read from stdout: (compile:compileIncremental) javac returned nonzero exit code
+(compile:compileIncremental) javac returned nonzero exit code
+Total time: 1 s, completed Dec 17, 2015 12:00:45 AM
+> server-post-command-error-handler
+> server-post-command-cleanup
+> server-handle-next-server-request
+> {file:/Users/Rob/code/zrealdojo/dojo/firstapp/}root/compile:mainClass
+Evaluating tasks: compile:mainClass
+Running task... Cancel: sbt.server.ServerTaskCancellation@42ffd33f, check cycles: false
+Total time: 0 s, completed Dec 17, 2015 12:00:45 AM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> backgroundRun
+Evaluating tasks: compile:backgroundRun
+Running task... Cancel: sbt.server.ServerTaskCancellation@14c58e73, check cycles: false
+Total time: 0 s, completed Dec 17, 2015 12:00:54 AM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> {file:/Users/Rob/code/zrealdojo/dojo/firstapp/}root/*:playForkConfig
+Evaluating tasks: *:playForkConfig
+Running task... Cancel: sbt.server.ServerTaskCancellation@9d67bc4, check cycles: false
+Total time: 0 s, completed Dec 17, 2015 12:00:56 AM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> root/playForkNotifyStart http://localhost:9000
+Evaluating tasks: *:playForkNotifyStart
+Running task... Cancel: sbt.server.ServerTaskCancellation@1f91a6ce, check cycles: false
+Total time: 0 s, completed Dec 17, 2015 12:00:57 AM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> {file:/Users/Rob/code/zrealdojo/dojo/firstapp/}root/*:playForkReload
+Evaluating tasks: *:playForkReload
+Running task... Cancel: sbt.server.ServerTaskCancellation@3fdc1c0d, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set(/Users/Rob/code/zrealdojo/dojo/firstapp/app/models/Users.java)
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set(/Users/Rob/code/zrealdojo/dojo/firstapp/app/models/Users.java)
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set(/Users/Rob/code/zrealdojo/dojo/firstapp/app/models/Users.java)
+
+Read from stdout: Compiling 1 Java source to /Users/Rob/code/zrealdojo/dojo/firstapp/target/scala-2.11/classes...
+Compiling 1 Java source to /Users/Rob/code/zrealdojo/dojo/firstapp/target/scala-2.11/classes...
+Attempting to call com.sun.tools.javac.api.JavacTool@2447e6f3 directly...
+Read from stdout: /Users/Rob/code/zrealdojo/dojo/firstapp/app/models/Users.java:55: <identifier> expected
+/Users/Rob/code/zrealdojo/dojo/firstapp/app/models/Users.java:55: <identifier> expected
+Read from stdout: /Users/Rob/code/zrealdojo/dojo/firstapp/app/models/Users.java:57: <identifier> expected
+/Users/Rob/code/zrealdojo/dojo/firstapp/app/models/Users.java:57: <identifier> expected
+Read from stdout: /Users/Rob/code/zrealdojo/dojo/firstapp/app/models/Users.java:59: <identifier> expected
+/Users/Rob/code/zrealdojo/dojo/firstapp/app/models/Users.java:59: <identifier> expected
+Total time: 1 s, completed Dec 17, 2015 12:00:59 AM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> compile
+Evaluating tasks: compile:compile
+Running task... Cancel: sbt.server.ServerTaskCancellation@f7300e4, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set(/Users/Rob/code/zrealdojo/dojo/firstapp/app/models/Users.java)
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set(/Users/Rob/code/zrealdojo/dojo/firstapp/app/models/Users.java)
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set(/Users/Rob/code/zrealdojo/dojo/firstapp/app/models/Users.java)
+
+Read from stdout: Compiling 1 Java source to /Users/Rob/code/zrealdojo/dojo/firstapp/target/scala-2.11/classes...
+Compiling 1 Java source to /Users/Rob/code/zrealdojo/dojo/firstapp/target/scala-2.11/classes...
+Attempting to call com.sun.tools.javac.api.JavacTool@4fbcce40 directly...
+Read from stdout: /Users/Rob/code/zrealdojo/dojo/firstapp/app/models/Users.java: /Users/Rob/code/zrealdojo/dojo/firstapp/app/models/Users.java uses or overrides a deprecated API.
+/Users/Rob/code/zrealdojo/dojo/firstapp/app/models/Users.java: /Users/Rob/code/zrealdojo/dojo/firstapp/app/models/Users.java uses or overrides a deprecated API.
+Read from stdout: /Users/Rob/code/zrealdojo/dojo/firstapp/app/models/Users.java: Recompile with -Xlint:deprecation for details.
+/Users/Rob/code/zrealdojo/dojo/firstapp/app/models/Users.java: Recompile with -Xlint:deprecation for details.
+Java compilation took 0.328165203 s
+Java analysis took 0.426057271 s
+Java compile + analysis took 0.762833671 s
+New invalidations:
+	Set()
+Initial set of included nodes: Set()
+Previously invalidated, but (transitively) depend on new invalidations:
+	Set()
+All newly invalidated sources after taking into account (previously) recompiled sources:Set()
+Total time: 1 s, completed Dec 17, 2015 12:01:24 AM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> {file:/Users/Rob/code/zrealdojo/dojo/firstapp/}root/*:playForkReload
+Evaluating tasks: *:playForkReload
+Running task... Cancel: sbt.server.ServerTaskCancellation@3834be12, check cycles: false
+
+Canceling execution...
+Task java.util.concurrent.ExecutorCompletionService$QueueingFuture@3a81c50 rejected from java.util.concurrent.ThreadPoolExecutor@39d63564[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 4]
+java.util.concurrent.RejectedExecutionException: Task java.util.concurrent.ExecutorCompletionService$QueueingFuture@3a81c50 rejected from java.util.concurrent.ThreadPoolExecutor@39d63564[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 4]
+Use 'last' for the full log.
+> server-post-command-error-handler
+> server-post-command-cleanup
+> server-handle-next-server-request
+> jobStop 1
+Evaluating tasks: *:jobStop
+Running task... Cancel: sbt.server.ServerTaskCancellation@1ba76f54, check cycles: false
+Total time: 0 s, completed Dec 17, 2015 12:01:24 AM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> backgroundRun
+Evaluating tasks: compile:backgroundRun
+Running task... Cancel: sbt.server.ServerTaskCancellation@7d87f701, check cycles: false
+Total time: 0 s, completed Dec 17, 2015 12:01:24 AM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> {file:/Users/Rob/code/zrealdojo/dojo/firstapp/}root/*:playForkConfig
+Evaluating tasks: *:playForkConfig
+Running task... Cancel: sbt.server.ServerTaskCancellation@7923eab8, check cycles: false
+Total time: 0 s, completed Dec 17, 2015 12:01:26 AM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> root/playForkNotifyStart http://localhost:9000
+Evaluating tasks: *:playForkNotifyStart
+Running task... Cancel: sbt.server.ServerTaskCancellation@bd2cd45, check cycles: false
+Total time: 0 s, completed Dec 17, 2015 12:01:27 AM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> {file:/Users/Rob/code/zrealdojo/dojo/firstapp/}root/*:playForkReload
+Evaluating tasks: *:playForkReload
+Running task... Cancel: sbt.server.ServerTaskCancellation@507e5fc2, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set()
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set()
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set()
+
+Copy resource mappings: 
+	(/Users/Rob/code/zrealdojo/dojo/firstapp/conf/application.conf,/Users/Rob/code/zrealdojo/dojo/firstapp/target/scala-2.11/classes/application.conf)
+	(/Users/Rob/code/zrealdojo/dojo/firstapp/conf/evolutions,/Users/Rob/code/zrealdojo/dojo/firstapp/target/scala-2.11/classes/evolutions)
+	(/Users/Rob/code/zrealdojo/dojo/firstapp/conf/logback.xml,/Users/Rob/code/zrealdojo/dojo/firstapp/target/scala-2.11/classes/logback.xml)
+	(/Users/Rob/code/zrealdojo/dojo/firstapp/conf/routes,/Users/Rob/code/zrealdojo/dojo/firstapp/target/scala-2.11/classes/routes)
+	(/Users/Rob/code/zrealdojo/dojo/firstapp/conf/evolutions/default,/Users/Rob/code/zrealdojo/dojo/firstapp/target/scala-2.11/classes/evolutions/default)
+	(/Users/Rob/code/zrealdojo/dojo/firstapp/conf/evolutions/default/1.sql,/Users/Rob/code/zrealdojo/dojo/firstapp/target/scala-2.11/classes/evolutions/default/1.sql)
+Total time: 1 s, completed Dec 17, 2015 12:01:29 AM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> {file:/Users/Rob/code/zrealdojo/dojo/firstapp/}root/compile:mainClass
+Evaluating tasks: compile:mainClass
+Running task... Cancel: sbt.server.ServerTaskCancellation@6a4922e6, check cycles: false
+Total time: 0 s, completed Dec 17, 2015 12:01:46 AM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> {file:/Users/Rob/code/zrealdojo/dojo/firstapp/}root/compile:discoveredMainClasses
+Evaluating tasks: compile:discoveredMainClasses
+Running task... Cancel: sbt.server.ServerTaskCancellation@80a68c7, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set()
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set()
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set()
+
+Total time: 0 s, completed Dec 17, 2015 12:01:46 AM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> backgroundRun
+Evaluating tasks: compile:backgroundRun
+Running task... Cancel: sbt.server.ServerTaskCancellation@371e4da3, check cycles: false
+Total time: 0 s, completed Dec 17, 2015 12:01:48 AM
+> server-post-command-cleanup
+> server-handle-next-server-request
 Done executing sbt server engine, result Right(Exit(0))
 Closing listening server socket
 Waiting for socket thread
 Waiting for request processor thread
 Waiting for command engine result
 Returning control to sbt launcher with result Exit(0)
-Closing the 58722@Robs-MacBook-Pro.local logs at Wed Dec 16 18:01:32 EST 2015, goodbye.
+Closing the 76367@Robs-MacBook-Pro.local logs at Thu Dec 17 00:01:48 EST 2015, goodbye.

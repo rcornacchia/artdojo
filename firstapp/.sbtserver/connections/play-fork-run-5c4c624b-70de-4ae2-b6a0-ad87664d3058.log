@@ -1,0 +1,9 @@
+New log file opened at Thu Dec 17 00:01:51 EST 2015 by 76454@Robs-MacBook-Pro.local
+Sending msg to client play-fork-run-5c4c624b-70de-4ae2-b6a0-ad87664d3058: DetachedLogEvent(LogMessage(debug,sbt server socket logs are in: /Users/Rob/code/zrealdojo/dojo/firstapp/.sbtserver/connections/master.log))
+Sending msg to client play-fork-run-5c4c624b-70de-4ae2-b6a0-ad87664d3058: DetachedLogEvent(LogMessage(debug,sbt client logs are in: /Users/Rob/code/zrealdojo/dojo/firstapp/.sbtserver/connections/play-fork-run-5c4c624b-70de-4ae2-b6a0-ad87664d3058.log))
+Reading next message from client.
+Sending msg to client play-fork-run-5c4c624b-70de-4ae2-b6a0-ad87664d3058: DetachedLogEvent(LogMessage(debug,sbt general server logs are in: /Users/Rob/code/zrealdojo/dojo/firstapp/.sbtserver/master.log))
+Client play-fork-run-5c4c624b-70de-4ae2-b6a0-ad87664d3058 EOF, shutting down.
+Stopping client.
+Dropping message (0,ReceivedResponse()) to dead client play-fork-run-5c4c624b-70de-4ae2-b6a0-ad87664d3058
+Client play-fork-run-5c4c624b-70de-4ae2-b6a0-ad87664d3058 thread exiting.

@@ -10,13 +10,21 @@ import java.text.SimpleDateFormat;
 import java.text.DateFormat;
 import java.util.Date;
 import java.io.File;
+import play.data.validation.Constraints.*;
 
+
+import com.amazonaws.AmazonClientException;
+import com.amazonaws.AmazonServiceException;
+import com.amazonaws.auth.profile.ProfileCredentialsProvider;
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.AmazonS3Client;
+import com.amazonaws.services.s3.model.PutObjectRequest;
 
 
 public class Application extends Controller {
 
 
-     public Result index() {
+    public Result index() {
         List<Artworks> arts = Artworks.find.where().orderBy("votes desc").setMaxRows(9).findList();
         return ok(index.render(arts, Form.form(Index.class)));
     }
@@ -68,7 +76,7 @@ public class Application extends Controller {
 
     }
 
-	 public Result authenticate() {
+	public Result authenticate() {
         Form<Login> loginForm = Form.form(Login.class).bindFromRequest();
             if (loginForm.hasErrors()) {
                 System.out.println("Failure");
@@ -84,7 +92,7 @@ public class Application extends Controller {
             return redirect(
                 routes.Application.secureIndex(loginForm.get().email)
             );
-            }
+        }
     }
 
     public Result login() {
@@ -106,12 +114,18 @@ public class Application extends Controller {
     }
 
     public static class Upload {
+        public String title;
         public File picture;
     }
 
     public Result upload() {
-        System.out.println("found one");
-        // picture.file = request().body().asRaw().asFile();
+        Form<Upload> uploadForm = Form.form(Upload.class).bindFromRequest();
+        File file = uploadForm.get().picture;
+        // get title
+        // upload to s3
+        // add artwork filepath and title to db
+        System.out.println(file);
+
         return ok("File uploaded");
     }
 
@@ -123,13 +137,15 @@ public class Application extends Controller {
     }
 
     public static class Register {
-
-	    public String email;
+        @Required
+        public String email;
+        @Required
         public String username;
+        @Required
 	    public String password;
         public String validate() {
             System.out.println(email);
-            if (Users.findByEmail(email) == null) {
+            if (Users.findByEmail(email) == null && email != null) {
                 return null;
             }
             return "Account with email already exists";
@@ -137,6 +153,7 @@ public class Application extends Controller {
 	}
 
     public static class Login {
+
 	    public String email;
 	    public String password;
 	    public String username;
@@ -191,7 +208,6 @@ public class Application extends Controller {
         return redirect(
                 routes.Application.secureIndex(user.email)
         );
-
     }
 
     public Result addUser() {
@@ -211,6 +227,5 @@ public class Application extends Controller {
                 routes.Application.index()
             );
         }
-
     }
 }
