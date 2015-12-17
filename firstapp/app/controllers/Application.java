@@ -52,6 +52,7 @@ public class Application extends Controller {
    public Result artistIndex() {
             Form<Artist> artistForm = Form.form(Artist.class).bindFromRequest();
             Long uid = artistForm.get().uid;
+            System.out.println("uid: "+ uid);
             Users artist = Users.findByUid(uid);
 
             List<Artworks> arts = Artworks.find.where().eq("uid", uid).orderBy("votes desc").setMaxRows(9).findList();
