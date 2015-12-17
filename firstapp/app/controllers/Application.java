@@ -30,6 +30,7 @@ public class Application extends Controller {
     }
 
     public Result secureIndex(String email) {
+            System.out.println(email);
             List<Artworks> arts = Artworks.find.where().orderBy("votes desc").setMaxRows(9).findList();
             for (int i=0; i< arts.size(); i++){
                 String auctionEndDate = arts.get(i).auction.closeDate;
@@ -52,6 +53,7 @@ public class Application extends Controller {
    public Result artistIndex() {
             Form<Artist> artistForm = Form.form(Artist.class).bindFromRequest();
             Long uid = artistForm.get().uid;
+            System.out.println("uid: "+ uid);
             Users artist = Users.findByUid(uid);
 
             List<Artworks> arts = Artworks.find.where().eq("uid", uid).orderBy("votes desc").setMaxRows(9).findList();
@@ -169,13 +171,15 @@ public class Application extends Controller {
 	public static class Index {
 	    public Long bid;
 	    public Long artId;
+	    public String email;
 	}
 
     public Result click(String flag){
         Form<Index> indexForm = Form.form(Index.class).bindFromRequest();
         Long artId = indexForm.get().artId;
         Artworks art = Artworks.find.byId(artId);
-        Users user = Users.findByEmail(session("email"));
+        String email = indexForm.get().email;
+        Users user = Users.findByEmail(email);
         if (flag.equals("upvote")){
             return upvote(art, user);
         } else {
