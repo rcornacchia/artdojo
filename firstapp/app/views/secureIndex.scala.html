@@ -82,6 +82,9 @@
                                                     <p>
                                                         <input type=number name="artId" placeholder="Bid" value=@arts(i).artid hidden>
                                                     </p>
+                                                    <p>
+                                                        <input type=text name="email" placeholder="Email" value=@user.email hidden>
+                                                    </p>
                                                     @if(!arts(i).users.contains(user)) {
                                                     <p>
                                                         <input type="image" src="http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons/glossy-silver-icons-arrows/008142-glossy-silver-icon-arrows-cut-arrow-up.png" height="42" width="42" alt="Submit" />
@@ -119,6 +122,9 @@
                                                         </p>
                                                         <p>
                                                             <input type=number name="artId" placeholder="Bid" value=@arts(i).artid hidden>
+                                                        </p>
+                                                        <p>
+                                                            <input type=text name="email" placeholder="Email" value=@user.email hidden>
                                                         </p>
                                                         <p>
                                                             <button type="submit" class="btn btn-default" id="submit@i">Submit</button>
