@@ -30,7 +30,6 @@ public class Application extends Controller {
     }
 
     public Result secureIndex(String email) {
-            System.out.println(email);
             List<Artworks> arts = Artworks.find.where().orderBy("votes desc").setMaxRows(9).findList();
             for (int i=0; i< arts.size(); i++){
                 String auctionEndDate = arts.get(i).auction.closeDate;
@@ -53,7 +52,6 @@ public class Application extends Controller {
    public Result artistIndex() {
             Form<Artist> artistForm = Form.form(Artist.class).bindFromRequest();
             Long uid = artistForm.get().uid;
-            System.out.println("uid: "+ uid);
             Users artist = Users.findByUid(uid);
 
             List<Artworks> arts = Artworks.find.where().eq("uid", uid).orderBy("votes desc").setMaxRows(9).findList();
@@ -118,12 +116,15 @@ public class Application extends Controller {
     public static class Upload {
         public String title;
         public File picture;
+        public String email;
+        public User user;
     }
 
     public Result upload() {
         Form<Upload> uploadForm = Form.form(Upload.class).bindFromRequest();
         File file = uploadForm.get().picture;
         System.out.println("file");
+
         // get title
         // upload to s3
         // add artwork filepath and title to db
@@ -171,15 +172,13 @@ public class Application extends Controller {
 	public static class Index {
 	    public Long bid;
 	    public Long artId;
-	    public String email;
 	}
 
     public Result click(String flag){
         Form<Index> indexForm = Form.form(Index.class).bindFromRequest();
         Long artId = indexForm.get().artId;
         Artworks art = Artworks.find.byId(artId);
-        String email = indexForm.get().email;
-        Users user = Users.findByEmail(email);
+        Users user = Users.findByEmail(session("email"));
         if (flag.equals("upvote")){
             return upvote(art, user);
         } else {
