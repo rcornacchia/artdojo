@@ -124,6 +124,8 @@ public class Application extends Controller {
         Form<Upload> uploadForm = Form.form(Upload.class).bindFromRequest();
         File file = uploadForm.get().picture;
         System.out.println("file");
+        Users user = Users.findByEmail(session("email"));
+        System.out.println(user);
 
         // get title
         // upload to s3
